@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<hr>
+
+<!-- <div class="columns">
+    <h1 class="title column is-two-thirds">{{ page.title }}</h1>
+</div> -->
+
+<div>{{ page.content | safe }}</div>
+
+{% endblock content %}

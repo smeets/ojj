@@ -1,0 +1,5 @@
+{% macro breadcrumb(link, k, last) %}
+    <li {% if last %}class="is-active"{% endif %}>
+        <a href="/{{ link | safe }}" {% if last %}aria-current="page"{% endif %}>{{ k | capitalize }}</a>
+    </li>
+{% endmacro breadcrumb %}

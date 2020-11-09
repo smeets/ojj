@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<hr/>
+
+<!-- <div class="columns">
+    <h1 class="title column is-two-thirds">{{ section.title }}</h1>
+</div> -->
+
+<div class="mb-4">
+    {{ section.content | markdown(inline=true) | safe }}
+</div>
+
+<ul>
+  {% for page in section.pages %}
+  <li>> <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    {% if page.extra.svclink %}/ <a href="{{ page.extra.svclink | safe }}">goto</a>{% endif %}
+    {% if page.extra.repolink %} / <a href="{{ page.extra.repolink | safe }}">repo</a> {% endif %}
+    {% if page.extra.archived %} (archived) {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock content %}
