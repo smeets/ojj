@@ -2,6 +2,7 @@
 title = "jana"
 slug = "jana"
 date = 2020-04-01
+description = "How to turn your flatmates insane, an idea."
 
 [extra]
 repolink = "https://github.com/smeets/jana"

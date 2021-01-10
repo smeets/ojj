@@ -1,7 +1,4 @@
 {% extends "base.html" %}
+{% block title %}Home{% endblock %}
 
-{% block content %}
-
-<p>Hello and welcome.</p>
-
-{% endblock content %}
+{% block content %} {{ section.content | safe }} {% endblock content %}

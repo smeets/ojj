@@ -1,5 +1,5 @@
 +++
-title = "Projects"
+title = "PROJECTS"
 sort_by = "date"
 template = "svc.html"
 page_template = "svc-page.html"
@@ -8,4 +8,4 @@ page_template = "svc-page.html"
 +++
 
 
-Listing of active and archived projects.
+Some alive :) some dead :( many lost :O

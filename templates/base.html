@@ -5,101 +5,37 @@
 
 <head>
   <meta charset="utf-8">
-  <title>ojj</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <title>{% if page %}{{ page.title }}{% else %}{{ section.title }}{% endif %} - ojj</title>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 
 
 <body>
-    {% if page %}
-        {% set components = page.components %}
-        {% set permalink = page.permalink %}
-        {% set title = page.title %}
-    {% else %}
-        {% set components = section.components %}
-        {% set permalink = section.permalink %}
-        {% set title = section.title %}
-    {% endif %}
+    <header>
+        <a class="navbar-item" href="/">~</a>
+        {% set root = get_section(path="_index.md", metadata_only=true) %}
+        {% for a in root.subsections %}
+            {% set s = get_section(path=a, metadata_only=true) %}
+            <a href="{{ s.permalink }}">{{ s.title }}</a>
+        {% endfor %}
+    </header>
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">OJJ</a>
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBurger">
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                  <span aria-hidden="true"></span>
-                </a>
-              </div>
-
-
-           <div id="navbarBurger" class="navbar-menu">
-                <div class="navbar-start">
-                    <a class="navbar-item" href="/">Home</a>
-                    {% for a in ["projects/_index.md", "about/index.md"] %}
-                        {% if a is ending_with("_index.md") %}
-                            {% set sub = get_section(path=a, metadata_only=true) %}
-                        {% else %}
-                            {% set sub = get_page(path=a, metadata_only=true) %}
-                        {% endif %}
-
-                        <a class="navbar-item" href="{{ sub.permalink }}">{{ sub.title }}</a>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </nav>
-    <section class="section">
+    <main>
         <div class="container">
             <div class="container">
-                {% if components | length > 0 %}
-                <nav class="breadcrumb" aria-label="breadcrumbs">
-                    <ul>
-                        {{ macros::breadcrumb(link="", k="Home", last=false) }}
-
-                        {% for k in components %}
-                            {% set crumblink = components | slice(start=0, end=loop.index) | join(sep='/') %}
-                            {{ macros::breadcrumb(link=crumblink, k= k, last=loop.last) }}
-                        {% endfor %}
-                    </ul>
-                </nav>
-                {% endif %}
-
                 {% block content %} {% endblock %}
             </div>
         </div>
-    </section>
+    </main>
 
-<!--     <footer class="footer">
-        <div class="container has-text-centered">
+    <footer class="footer">
+        <div class="container">
+            <hr>
             <p>
-                The source code is licensed
-                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+                © 2020 Axel Smeets • articles are licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>
             </p>
       </div>
-    </footer> -->
-
-    <script>
-        function handleNavbarClick(e) {
-            // Get the target from the "data-target" attribute
-            var target = e.target.dataset.target;
-            var $target = document.getElementById(target);
-
-            // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-            e.target.classList.toggle('is-active');
-            $target.classList.toggle('is-active');
-        }
-
-        document.addEventListener('DOMContentLoaded', function (e) {
-            var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-            for (var i = 0; i < $navbarBurgers.length; i++) {
-                var el = $navbarBurgers[i];
-                el.addEventListener('click', handleNavbarClick);
-            }
-        });
-    </script>
+    </footer>
 </body>
 
 </html>

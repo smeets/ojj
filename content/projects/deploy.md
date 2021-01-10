@@ -1,6 +1,7 @@
 +++
 title = "deploy"
 date = 2018-03-19
+description = "Parallel ssh script executor of d00m."
 
 [extra]
 repolink = "https://github.com/smeets/deploy"
