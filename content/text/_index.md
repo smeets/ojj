@@ -5,4 +5,4 @@ page_template = "blogpost.html"
 +++
 
 
-No words yet.
+Words fail to describe.
