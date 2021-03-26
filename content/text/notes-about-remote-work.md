@@ -39,13 +39,15 @@ This actually works surprisingly well, especially combined with e.g.
 
 ## docker 4 windows login errors
 
-- `git` failing due to something related to a credential manager - fixed by switching remote from https to ssh
-- `az acr login` failing due to similar error - resolved after [reading the fucking manual](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication)
+Of course, it was not exactly a smooth start:
+
+- `git` failed due to something related to a credential manager - "fixed" by switching remote from https to ssh
+- `az acr login` also failed due to similar error - resolved after [reading the fucking manual](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication)
 and [learning about docker credentials](https://www.projectatomic.io/blog/2016/03/docker-credentials-store/)
 
 ```bash
 # if credStore == desktop, fucking delete it
 sed -i '/credStore": "desktop/d' ~/.docker/config.json
-set TOKEN=$(az acr login xyz --expose-token | jq .accessToken)
+TOKEN=$(az acr login xyz --expose-token | jq .accessToken)
 docker login xyz.azurecr.io -u 0000-0000... -p ${TOKEN}
 ```
