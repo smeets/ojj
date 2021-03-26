@@ -33,22 +33,41 @@ $size-7: 0.75rem !default
 $bg-color: $white-bis
 $max-width: 45rem + 13rem
 
+\:root 
+  --color-text: #{$black}
+  --color-bg: #{$white-bis}
+  --color-link: #{$blue}
+
+@media (prefers-color-scheme: dark)
+  \:root
+    --color-bg: #{$black}
+    --color-text: #{$white-bis}
+    --color-link: #{$green}
+
+a, a:visited
+  color: var(--color-link)
+
 html
-  background-color: $bg-color
+  background-color: var(--color-bg)
+  color: var(--color-text)
+
+  font-family: $family-sans-serif
   font-size: 16px
   -moz-osx-font-smoothing: grayscale
   -webkit-font-smoothing: antialiased
-  min-width: 300px
   text-rendering: $render-mode
   text-size-adjust: 100%
+  
+  min-width: 300px
 
 header, main, footer
   max-width: $max-width
   margin: 0 auto
-
 
 .container
 	flex-grow: 1
 	margin: 0 auto
 	position: relative
 	width: auto
+
+
