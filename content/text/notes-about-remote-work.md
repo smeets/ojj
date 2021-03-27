@@ -3,9 +3,7 @@ title = "notes about remote work"
 date = 2021-03-26
 updated = 2021-03-26
 +++
-
-# notes about remote work
-
+	
 So I'm locked out of my apartment for about 7 weeks, with only a laptop and a
 keyboard. 
 
@@ -24,11 +22,42 @@ folders in the container.
 Somehow my apartment will still have internet, so why take the big desktop
 with me when I can learn some new stuff by leaving it home... ;]
 
-- Expose a Raspberry Pi (running 24/7) via [Tailscale](https://tailscale.com/)
-- Enable the OpenSSH server and Wake-On-LAN on my docker machine (Windows) 
-- SSH into the RPI and send WOL packet from there (sending WOL across LANs is tricky) 
-- SSH (with port-forward) into windows and launch `docker-compose ... up` directly (for automatic cleanup) 
-- When I'm done for the day I can put it back to sleep
+## my setup
+
+Essentially, I have a Windows machine and a Raspberry Pi. My plan? Use Wake-On-LAN
+to wake my Windows machine, run docker on it for work and put it back to sleep when done.
+
+**1.** Expose a Raspberry Pi (running 24/7) via [Tailscale](https://tailscale.com/) and setup 
+[wol](https://github.com/sabhiram/go-wol) with MAC address of my Windows machine
+
+**2.** Enable the OpenSSH server and Wake-On-LAN on my docker machine (Windows) 
+
+**3.** SSH into RPI and send WOL packet to Windows machine
+```bash
+#!/usr/bin/env bash
+ssh homepi '/home/pi/go/bin/wol wake dockerhost'
+```
+
+**4.** SSH into Windows machine and start my docker stuff
+
+```bash
+#!/usr/bin/env bash
+ssh dockerhost -L 3200:localhost:3200 -t 'cmd /c \"cd /dE:/work/xyz && docker-compose up\"'
+```
+
+and maybe an interactive session as well.
+
+```bash
+#!/usr/bin/env bash
+ssh dockerhost -t 'cmd /k \"cd /dE:/work/xyz\"'
+```
+
+**5.** When I'm done for the day I can put it back to sleep
+
+```bash
+#!/usr/bin/env bash
+ssh dockerhost -t 'cmd /c \"rundll32.exe powrprof.dll,SetSuspendState 0,1,0\"'
+```
 
 This actually works surprisingly well, especially combined with e.g.
 [tmuxinator](https://github.com/tmuxinator/tmuxinator) for  extra automation:
@@ -51,3 +80,5 @@ sed -i '/credStore": "desktop/d' ~/.docker/config.json
 TOKEN=$(az acr login xyz --expose-token | jq .accessToken)
 docker login xyz.azurecr.io -u 0000-0000... -p ${TOKEN}
 ```
+
+ 
