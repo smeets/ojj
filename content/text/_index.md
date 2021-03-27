@@ -2,6 +2,7 @@
 title = "TXT"
 template = "blog.html"
 page_template = "blogpost.html"
+insert_anchor_links = "left"
 +++
 
 
