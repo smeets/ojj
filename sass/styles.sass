@@ -30,27 +30,46 @@ $size-5: 1.25rem !default
 $size-6: 1rem !default
 $size-7: 0.75rem !default
 
-$bg-color: $white-bis
 $max-width: 45rem + 13rem
 
-$md-min: 58rem;
+$md-min: 58rem
 
 \:root 
   --color-text: #{$black}
-  --color-bg: #{$white-bis}
+  --color-text-sub: #{$grey}
+  --color-bg: #{$white-ter}
+  --color-bg-inv: #{$black}
   --color-link: #{$blue}
+  --color-sweet: #{$turquoise}
+  --color-sweet-2: #{$black}
 
 @media (prefers-color-scheme: dark)
   \:root
     --color-bg: #{$black}
     --color-text: #{$white-bis}
+    --color-text-sub: #{$grey-light}
     --color-link: #{$green}
+    --color-sweet-2: #{$yellow}
 
 a
   hyphens: none
-
-a, a:visited
   color: var(--color-link)
+
+  &.taxonomy_link
+    color: var(--color-sweet)
+    text-decoration: none
+
+    &:hover
+      color: var(--color-sweet-2)
+
+article
+  p
+    &.blogpost_intro
+      font-style: italic
+      margin-top: 0.25rem
+      color: var(--color-text-sub)
+  h1
+    margin-bottom: 0
 
 html
   background-color: var(--color-bg)

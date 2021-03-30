@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+
+<p>{{ taxonomy.name }} / {{ term.name }}</p>
+
+<ul>
+  {% for page in term.pages %}
+  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a> {% if page.date %}({{ page.date }}){% endif %}</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
