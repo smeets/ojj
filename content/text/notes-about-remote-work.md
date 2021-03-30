@@ -1,7 +1,10 @@
 +++
 title = "notes about remote work"
+description = "ramblings of a madman about avoiding docker for mac and using windows from the command line"
 date = 2021-03-26
-updated = 2021-03-26
+updated = 2021-03-29
+[taxonomies]
+tags=["work", "docker", "remote"]
 +++
 	
 So I'm locked out of my apartment for about 7 weeks, with only a laptop and a
@@ -19,8 +22,9 @@ addition, the disk performance is [not very
 good](https://github.com/docker/for-mac/issues/1592) when mounting host
 folders in the container.
 
-Somehow my apartment will still have internet, so why take the big desktop
-with me when I can learn some new stuff by leaving it home... ;]
+Somehow my apartment will keep its internet during the renovation, so why take
+the big desktop with me when I can learn some new stuff by leaving it home...
+;]
 
 ## my setup
 
@@ -66,6 +70,11 @@ This actually works surprisingly well, especially combined with e.g.
 - work on project(s): `tmuxinator start/stop some-project` 
 - bring machine down: `tmuxinator stop workday`
 
+Looks like I'll need to keep an eye out on [innernet](https://blog.tonari.no/introducing-innernet)
+and see if that could replace my reliance on Tailscale. It requires a coordinator though (which
+basically is my reason for using Tailscale, outsourcing and all that), but that could be worked around
+with a dynamically updated DNS config. Maybe [Cloudflare has an API?](https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record)
+
 ## docker 4 windows login errors
 
 Of course, it was not exactly a smooth start:
@@ -74,11 +83,14 @@ Of course, it was not exactly a smooth start:
 - `az acr login` also failed due to similar error - resolved after [reading the fucking manual](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication)
 and [learning about docker credentials](https://www.projectatomic.io/blog/2016/03/docker-credentials-store/)
 
-```bash
-# if credStore == desktop, fucking delete it
-sed -i '/credStore": "desktop/d' ~/.docker/config.json
-TOKEN=$(az acr login xyz --expose-token | jq .accessToken)
-docker login xyz.azurecr.io -u 0000-0000... -p ${TOKEN}
+```cmd
+@rem remove "credsStore" key from config (seems to default to desktop, which does not work with ssh session)
+jq "del(.credsStore)" %userprofile%\.docker\config.json | sponge %userprofile%\.docker\config.json
+
+@REM output --raw string field (without quotes)
+az acr login --name xyz --expose-token | jq -r .accessToken > .aztoken
+cat .aztoken | docker login xyz.azurecr.io -u 00000000-0000-0000-0000-000000000000 --password-stdin
+del .aztoken
 ```
 
  
