@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    notes about remote work
+     - ojj</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <a class="navbar-item" href="/">Home</a>
+        
+        
+            
+            <a class="navbar-item" href="https:&#x2F;&#x2F;ojj.nu&#x2F;projects&#x2F;">Projects</a>
+        
+            
+            <a class="navbar-item" href="https:&#x2F;&#x2F;ojj.nu&#x2F;text&#x2F;">Notes</a>
+        
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="container">
+                
+<article>
+
+
+<h1>notes about remote work</h1>
+
+<p>So I’m locked out of my apartment for about 7 weeks, with only a laptop and a
+keyboard.</p>
+<p>Here are some notes about my setup.</p>
+<h2 id="docker-4-mac"><a class="zola-anchor" href="#docker-4-mac" aria-label="Anchor link for: docker-4-mac">#</a>docker 4 mac</h2>
+<p>TLDR; probably not worth it.</p>
+<p>There is a native ARM64 build, but it comes with an <a rel="noopener noreferrer" target="_blank" href="https://docs.docker.com/docker-for-mac/apple-m1/#known-issues">extensive list of known
+issues</a>. In
+particular, emulation of x86-based containers is sketchy and the disk
+performance is <a rel="noopener noreferrer" target="_blank" href="https://github.com/docker/for-mac/issues/1592">not very good</a>
+when mounting host folders in the container.</p>
+<p>Normally, I have access to a Windows (home) or Linux (office) machine which
+both offer a better docker experience compared to MacOS. Since my apartment
+will continue to have internet access, why run a gimped container setup on my
+MacBook Air when I can <del>do something stupid</del> learn some new stuff?</p>
+<p>;]</p>
+<h2 id="my-setup"><a class="zola-anchor" href="#my-setup" aria-label="Anchor link for: my-setup">#</a>my setup</h2>
+<p>I have a Windows machine and a Raspberry Pi at home. My plan? Use Wake-On-LAN
+to wake my Windows machine, run docker on it for work and put it back to
+sleep when done.</p>
+<p>My first plan was to send a Wake-On-LAN (WOL) packet from my new apartment to
+my Windows machine at home, but this turned out to be a bit too tricky. But
+then I remebered my poor Raspberry Pi! This device is running 24/7 so maybe I
+could send WOL packets from it instead? That would bypass the whole
+broadcast/IP trickery required to send WOL packets across the big and scary
+internet.</p>
+<p>I found a nice little program called <a rel="noopener noreferrer" target="_blank" href="https://github.com/sabhiram/go-wol">wol</a>
+which let me save the MAC address of my Windows machine under an alias, which
+made the wakeup script self-explanatory.</p>
+<pre style="background-color:#282a36;">
+<code class="language-bash" data-lang="bash"><span style="color:#6272a4;">#!/usr/bin/env bash
+</span><span style="color:#50fa7b;">ssh</span><span style="color:#f8f8f2;"> piathome </span><span style="color:#f1fa8c;">&#39;/home/pi/go/bin/wol wake winathome&#39;
+</span></code></pre>
+<p>Next up was enabling Wake-On-LAN on my Windows machine, which turned out to be
+quite simple. After a couple of wake-and-sleep cycles later I was confident
+that this setup would actually work.</p>
+<p>At this point I could wake the machine from sleep, and since I already had
+enabled the built-in OpenSSH server, I searched online and found an eldritch
+command to put it back to sleep. Behold:</p>
+<pre style="background-color:#282a36;">
+<code class="language-bash" data-lang="bash"><span style="color:#6272a4;">#!/usr/bin/env bash
+</span><span style="color:#50fa7b;">ssh</span><span style="color:#f8f8f2;"> winathome</span><span style="font-style:italic;color:#ffb86c;"> -t </span><span style="color:#f1fa8c;">&#39;cmd /c \&quot;rundll32.exe powrprof.dll,SetSuspendState 0,1,0\&quot;&#39;
+</span></code></pre>
+<p>Now it was time to automate these steps (as steps in a
+<a rel="noopener noreferrer" target="_blank" href="https://github.com/tmuxinator/tmuxinator">tmuxinator</a>
+project) and move on to docker <del>shit</del> stuff!</p>
+<p>Starting, stopping and all container interactions worked without any problem.
+This is my script for port-forwarding ports and starting the backend services
+in a work project:</p>
+<pre style="background-color:#282a36;">
+<code class="language-bash" data-lang="bash"><span style="color:#6272a4;">#!/usr/bin/env bash
+</span><span style="color:#50fa7b;">ssh</span><span style="color:#f8f8f2;"> winathome</span><span style="font-style:italic;color:#ffb86c;"> -L</span><span style="color:#f8f8f2;"> 3200:localhost:3200</span><span style="font-style:italic;color:#ffb86c;"> -t </span><span style="color:#f1fa8c;">&#39;cmd /c \&quot;cd /dE:/work/xyz &amp;&amp; docker-compose up\&quot;&#39;
+</span></code></pre>
+<p>and maybe an interactive session as well.</p>
+<pre style="background-color:#282a36;">
+<code class="language-bash" data-lang="bash"><span style="color:#6272a4;">#!/usr/bin/env bash
+</span><span style="color:#50fa7b;">ssh</span><span style="color:#f8f8f2;"> winathome</span><span style="font-style:italic;color:#ffb86c;"> -t </span><span style="color:#f1fa8c;">&#39;cmd /k \&quot;cd /dE:/work/xyz\&quot;&#39;
+</span></code></pre>
+<p>This actually works surprisingly well, now I mostly do:</p>
+<ul>
+<li>bring machine up: <code>tmuxinator start workday</code></li>
+<li>work on project(s): <code>tmuxinator start/stop xyz</code></li>
+<li>bring machine down: <code>tmuxinator stop workday</code></li>
+</ul>
+<h2 id="docker-4-windows-login-errors"><a class="zola-anchor" href="#docker-4-windows-login-errors" aria-label="Anchor link for: docker-4-windows-login-errors">#</a>docker 4 windows login errors</h2>
+<p>Of course, it was not exactly a smooth start:</p>
+<ul>
+<li><code>git</code> failed due to something related to a credential manager - “fixed” by switching remote from https to ssh</li>
+<li><code>az acr login</code> also failed due to similar error - resolved after <a rel="noopener noreferrer" target="_blank" href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication">reading the fucking manual</a>
+and <a rel="noopener noreferrer" target="_blank" href="https://www.projectatomic.io/blog/2016/03/docker-credentials-store/">learning about docker credentials</a></li>
+</ul>
+<pre style="background-color:#282a36;">
+<code class="language-cmd" data-lang="cmd"><span style="color:#ff79c6;">@rem</span><span style="color:#6272a4;"> remove &quot;credsStore&quot; key from config </span><span style="background-color:#ff79c6;color:#f8f8f0;">(</span><span style="color:#6272a4;">seems to default to desktop, which does not work with ssh session</span><span style="background-color:#ff79c6;color:#f8f8f0;">)</span><span style="color:#6272a4;">
+</span><span style="color:#f8f8f2;">jq </span><span style="color:#f1fa8c;">&quot;del(.credsStore)&quot; </span><span style="color:#ffffff;">%userprofile%</span><span style="color:#f8f8f2;">\.docker\config.json </span><span style="color:#ff79c6;">|</span><span style="color:#f8f8f2;"> sponge </span><span style="color:#ffffff;">%userprofile%</span><span style="color:#f8f8f2;">\.docker\config.json
+
+</span><span style="color:#ff79c6;">@REM</span><span style="color:#6272a4;"> output --raw string field </span><span style="background-color:#ff79c6;color:#f8f8f0;">(</span><span style="color:#6272a4;">without quotes</span><span style="background-color:#ff79c6;color:#f8f8f0;">)</span><span style="color:#6272a4;">
+</span><span style="color:#f8f8f2;">az acr login --name xyz --expose-token </span><span style="color:#ff79c6;">|</span><span style="color:#f8f8f2;"> jq -r .accessToken </span><span style="color:#ff79c6;">&gt;</span><span style="color:#f8f8f2;"> .aztoken
+cat .aztoken </span><span style="color:#ff79c6;">|</span><span style="color:#f8f8f2;"> docker login xyz.azurecr.io -u </span><span style="color:#bd93f9;">00000000</span><span style="color:#f8f8f2;">-</span><span style="color:#bd93f9;">0000</span><span style="color:#f8f8f2;">-</span><span style="color:#bd93f9;">0000</span><span style="color:#f8f8f2;">-</span><span style="color:#bd93f9;">0000</span><span style="color:#f8f8f2;">-</span><span style="color:#bd93f9;">000000000000</span><span style="color:#f8f8f2;"> --password-stdin
+</span><span style="color:#ff79c6;">del</span><span style="color:#f8f8f2;"> .aztoken
+</span></code></pre><h2 id="interesting-things"><a class="zola-anchor" href="#interesting-things" aria-label="Anchor link for: interesting-things">#</a>interesting things</h2>
+<p>I recently read about an open-source alternative to Tailscale - <a rel="noopener noreferrer" target="_blank" href="https://blog.tonari.no/introducing-innernet">innernet</a>.
+It requires a coordinator, which basically is my reason for using Tailscale.</p>
+<p>Perhaps a dynamically updated DNS config pointing at my Raspberry PI could help? I see that <a rel="noopener noreferrer" target="_blank" href="https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record">Cloudflare has an API</a> for interacting with DNS records.</p>
+<h2 id="closing-thoughts"><a class="zola-anchor" href="#closing-thoughts" aria-label="Anchor link for: closing-thoughts">#</a>closing thoughts</h2>
+<p>I don’t really want to spend a lot of time on this type of stuff, primarily because I find it very addictive…</p>
+<p>That’s all from me, let me know if you have any tips!</p>
+
+
+
+<p class="blogpost_intro">
+March 26, 2021
+(updated April 16, 2021)
+tagged
+	
+		<a class="taxonomy_link" href="https:&#x2F;&#x2F;ojj.nu&#x2F;tags&#x2F;work&#x2F;">#work</a> 
+		<a class="taxonomy_link" href="https:&#x2F;&#x2F;ojj.nu&#x2F;tags&#x2F;docker&#x2F;">#docker</a> 
+		<a class="taxonomy_link" href="https:&#x2F;&#x2F;ojj.nu&#x2F;tags&#x2F;remote&#x2F;">#remote</a>
+</p>
+
+</article>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <hr>
+            <p>
+                © 2020-2021 Axel Smeets • <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+            </p>
+      </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title></title>
+	<link href="https://ojj.nu/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://ojj.nu"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-04-16T00:00:00+00:00</updated>
+	<id>https://ojj.nu/atom.xml</id>
+	<entry xml:lang="en">
+		<title>notes about remote work</title>
+		<published>2021-03-26T00:00:00+00:00</published>
+		<updated>2021-04-16T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/text/notes-about-remote-work/" type="text/html"/>
+		<id>https://ojj.nu/text/notes-about-remote-work/</id>
+		<content type="html">&lt;p&gt;So I’m locked out of my apartment for about 7 weeks, with only a laptop and a
+keyboard.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are some notes about my setup.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;docker-4-mac&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#docker-4-mac&quot; aria-label=&quot;Anchor link for: docker-4-mac&quot;&gt;#&lt;&#x2F;a&gt;docker 4 mac&lt;&#x2F;h2&gt;
+&lt;p&gt;TLDR; probably not worth it.&lt;&#x2F;p&gt;
+&lt;p&gt;There is a native ARM64 build, but it comes with an &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;docker-for-mac&#x2F;apple-m1&#x2F;#known-issues&quot;&gt;extensive list of known
+issues&lt;&#x2F;a&gt;. In
+particular, emulation of x86-based containers is sketchy and the disk
+performance is &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;for-mac&#x2F;issues&#x2F;1592&quot;&gt;not very good&lt;&#x2F;a&gt;
+when mounting host folders in the container.&lt;&#x2F;p&gt;
+&lt;p&gt;Normally, I have access to a Windows (home) or Linux (office) machine which
+both offer a better docker experience compared to MacOS. Since my apartment
+will continue to have internet access, why run a gimped container setup on my
+MacBook Air when I can &lt;del&gt;do something stupid&lt;&#x2F;del&gt; learn some new stuff?&lt;&#x2F;p&gt;
+&lt;p&gt;;]&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;my-setup&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#my-setup&quot; aria-label=&quot;Anchor link for: my-setup&quot;&gt;#&lt;&#x2F;a&gt;my setup&lt;&#x2F;h2&gt;
+&lt;p&gt;I have a Windows machine and a Raspberry Pi at home. My plan? Use Wake-On-LAN
+to wake my Windows machine, run docker on it for work and put it back to
+sleep when done.&lt;&#x2F;p&gt;
+&lt;p&gt;My first plan was to send a Wake-On-LAN (WOL) packet from my new apartment to
+my Windows machine at home, but this turned out to be a bit too tricky. But
+then I remebered my poor Raspberry Pi! This device is running 24&#x2F;7 so maybe I
+could send WOL packets from it instead? That would bypass the whole
+broadcast&#x2F;IP trickery required to send WOL packets across the big and scary
+internet.&lt;&#x2F;p&gt;
+&lt;p&gt;I found a nice little program called &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sabhiram&#x2F;go-wol&quot;&gt;wol&lt;&#x2F;a&gt;
+which let me save the MAC address of my Windows machine under an alias, which
+made the wakeup script self-explanatory.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; piathome &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;#39;&#x2F;home&#x2F;pi&#x2F;go&#x2F;bin&#x2F;wol wake winathome&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next up was enabling Wake-On-LAN on my Windows machine, which turned out to be
+quite simple. After a couple of wake-and-sleep cycles later I was confident
+that this setup would actually work.&lt;&#x2F;p&gt;
+&lt;p&gt;At this point I could wake the machine from sleep, and since I already had
+enabled the built-in OpenSSH server, I searched online and found an eldritch
+command to put it back to sleep. Behold:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; winathome&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -t &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;#39;cmd &#x2F;c \&amp;quot;rundll32.exe powrprof.dll,SetSuspendState 0,1,0\&amp;quot;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now it was time to automate these steps (as steps in a
+&lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;tmuxinator&#x2F;tmuxinator&quot;&gt;tmuxinator&lt;&#x2F;a&gt;
+project) and move on to docker &lt;del&gt;shit&lt;&#x2F;del&gt; stuff!&lt;&#x2F;p&gt;
+&lt;p&gt;Starting, stopping and all container interactions worked without any problem.
+This is my script for port-forwarding ports and starting the backend services
+in a work project:&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; winathome&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -L&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; 3200:localhost:3200&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -t &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;#39;cmd &#x2F;c \&amp;quot;cd &#x2F;dE:&#x2F;work&#x2F;xyz &amp;amp;&amp;amp; docker-compose up\&amp;quot;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;and maybe an interactive session as well.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; winathome&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -t &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;#39;cmd &#x2F;k \&amp;quot;cd &#x2F;dE:&#x2F;work&#x2F;xyz\&amp;quot;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This actually works surprisingly well, now I mostly do:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;bring machine up: &lt;code&gt;tmuxinator start workday&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;work on project(s): &lt;code&gt;tmuxinator start&#x2F;stop xyz&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;bring machine down: &lt;code&gt;tmuxinator stop workday&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;docker-4-windows-login-errors&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#docker-4-windows-login-errors&quot; aria-label=&quot;Anchor link for: docker-4-windows-login-errors&quot;&gt;#&lt;&#x2F;a&gt;docker 4 windows login errors&lt;&#x2F;h2&gt;
+&lt;p&gt;Of course, it was not exactly a smooth start:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git&lt;&#x2F;code&gt; failed due to something related to a credential manager - “fixed” by switching remote from https to ssh&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;az acr login&lt;&#x2F;code&gt; also failed due to similar error - resolved after &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.microsoft.com&#x2F;en-us&#x2F;azure&#x2F;container-registry&#x2F;container-registry-authentication&quot;&gt;reading the fucking manual&lt;&#x2F;a&gt;
+and &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.projectatomic.io&#x2F;blog&#x2F;2016&#x2F;03&#x2F;docker-credentials-store&#x2F;&quot;&gt;learning about docker credentials&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;code class=&quot;language-cmd&quot; data-lang=&quot;cmd&quot;&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;@rem&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt; remove &amp;quot;credsStore&amp;quot; key from config &lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#ff79c6;color:#f8f8f0;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;seems to default to desktop, which does not work with ssh session&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#ff79c6;color:#f8f8f0;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;jq &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;del(.credsStore)&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;%userprofile%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;\.docker\config.json &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sponge &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;%userprofile%&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;\.docker\config.json
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;@REM&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt; output --raw string field &lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#ff79c6;color:#f8f8f0;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;without quotes&lt;&#x2F;span&gt;&lt;span style=&quot;background-color:#ff79c6;color:#f8f8f0;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;az acr login --name xyz --expose-token &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; jq -r .accessToken &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; .aztoken
+cat .aztoken &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;|&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; docker login xyz.azurecr.io -u &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;00000000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;0000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;0000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;0000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;000000000000&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; --password-stdin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;del&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; .aztoken
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;interesting-things&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#interesting-things&quot; aria-label=&quot;Anchor link for: interesting-things&quot;&gt;#&lt;&#x2F;a&gt;interesting things&lt;&#x2F;h2&gt;
+&lt;p&gt;I recently read about an open-source alternative to Tailscale - &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;blog.tonari.no&#x2F;introducing-innernet&quot;&gt;innernet&lt;&#x2F;a&gt;.
+It requires a coordinator, which basically is my reason for using Tailscale.&lt;&#x2F;p&gt;
+&lt;p&gt;Perhaps a dynamically updated DNS config pointing at my Raspberry PI could help? I see that &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;api.cloudflare.com&#x2F;#dns-records-for-a-zone-update-dns-record&quot;&gt;Cloudflare has an API&lt;&#x2F;a&gt; for interacting with DNS records.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;closing-thoughts&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#closing-thoughts&quot; aria-label=&quot;Anchor link for: closing-thoughts&quot;&gt;#&lt;&#x2F;a&gt;closing thoughts&lt;&#x2F;h2&gt;
+&lt;p&gt;I don’t really want to spend a lot of time on this type of stuff, primarily because I find it very addictive…&lt;&#x2F;p&gt;
+&lt;p&gt;That’s all from me, let me know if you have any tips!&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>ica-tuna</title>
+		<published>2020-10-10T00:00:00+00:00</published>
+		<updated>2020-10-10T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/tuna/" type="text/html"/>
+		<id>https://ojj.nu/projects/tuna/</id>
+		<content type="html">&lt;p&gt;Shitty price scraper and tracker for the neighbourhood supermarket: ICA Tuna.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>bonk</title>
+		<published>2020-10-01T00:00:00+00:00</published>
+		<updated>2020-10-01T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/bonk/" type="text/html"/>
+		<id>https://ojj.nu/projects/bonk/</id>
+		<content type="html">&lt;p&gt;A decluttered, simple UFC mirror. Updates hourly.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>webfox</title>
+		<published>2020-06-01T00:00:00+00:00</published>
+		<updated>2020-06-01T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/webfox/" type="text/html"/>
+		<id>https://ojj.nu/projects/webfox/</id>
+		<content type="html">&lt;p&gt;Learning-by-doing &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;httpie.org&#x2F;&quot;&gt;httpie&lt;&#x2F;a&gt; clone in &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>jana</title>
+		<published>2020-04-01T00:00:00+00:00</published>
+		<updated>2020-04-01T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/jana/" type="text/html"/>
+		<id>https://ojj.nu/projects/jana/</id>
+		<content type="html">&lt;p&gt;“Just Another Network Analyser”.&lt;&#x2F;p&gt;
+&lt;p&gt;Send UDP from multiple clients to one server using different payload and
+inter-packet latency distributions. Developed solely for use during my thesis
+work in Wi-Fi modeling.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>bandcamp search</title>
+		<published>2020-01-01T00:00:00+00:00</published>
+		<updated>2020-01-01T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/bandcamp-search/" type="text/html"/>
+		<id>https://ojj.nu/projects/bandcamp-search/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;“Reverse-engineered” how the Bandcamp app does “real-time” keyword search.&lt;&#x2F;li&gt;
+&lt;li&gt;Turns out it’s a simple HTTP API.&lt;&#x2F;li&gt;
+&lt;li&gt;&#x2F;surprise face :o&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>iceberg</title>
+		<published>2020-01-01T00:00:00+00:00</published>
+		<updated>2020-01-01T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/iceberg/" type="text/html"/>
+		<id>https://ojj.nu/projects/iceberg/</id>
+		<content type="html">&lt;ul&gt;
+&lt;li&gt;Proof-of-concept game using websockets to signal and connect webrtc players to a game server&lt;&#x2F;li&gt;
+&lt;li&gt;Sample phone orientation and use as input (acceleration) to game server&lt;&#x2F;li&gt;
+&lt;li&gt;Don’t fall off the iceberg :] (&lt;strong&gt;No actual gameplay&lt;&#x2F;strong&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>deploy</title>
+		<published>2018-03-19T00:00:00+00:00</published>
+		<updated>2018-03-19T00:00:00+00:00</updated>
+		<link href="https://ojj.nu/projects/deploy/" type="text/html"/>
+		<id>https://ojj.nu/projects/deploy/</id>
+		<content type="html">&lt;p&gt;All-to-simple deployment tool I wrote to learn some &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;golang.org&#x2F;&quot;&gt;Go&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Has since been replaced by &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pressly&#x2F;sup&#x2F;&quot;&gt;sup&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Worked well, after a fashion.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>
