@@ -6,8 +6,7 @@
 
 <ul>
   {% for page in section.pages %}
-  <li> <a href="{{ page.permalink | safe }}">{{ page.title }}</a> - {{ page.description }}
-    {% if page.extra.archived %} (archived) {% endif %}
+  <li class="{% if page.extra.archived %}archived{% endif %}"> <a href="{{ page.permalink | safe }}">{{ page.title }}</a> - {{ page.description }}
     </li>
   {% endfor %}
 </ul>

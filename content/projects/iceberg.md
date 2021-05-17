@@ -1,7 +1,7 @@
 +++
 title = "iceberg"
 date = 2020-01-01
-description = "A node js server, a TV and two phones tried to play a game..."
+description = "A node js server, two phones and a TV tried to play a game..."
 [extra]
 repolink = "https://github.com/smeets/iceberg"
 svclink = ""

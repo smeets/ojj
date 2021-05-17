@@ -3,21 +3,23 @@
 {% block content %}
 <article>
 
+
 <h1>{{ page.title | safe }}</h1>
 
+{{ page.content | safe }}
+
+
 <p class="blogpost_intro">
-	Published {{ page.date }} {% if page.updated %} (last updated at {{ page.updated}}){% endif %}
-	in
+{{ page.date | date(format="%B %d, %Y") }}
+{% if page.updated %}(updated {{ page.updated | date(format="%B %d, %Y") }}){% endif %}
+tagged
 {%- for k, v in page.taxonomies %}
 	{% for t in v -%}
-		{% if loop.index > 1 %} • {% endif %}
-		<a class="taxonomy_link" href="{{ get_taxonomy_url(kind=k, name=t) }}">{{ t }}</a>
+		{% if loop.index > 1 %} {% endif %}
+		<a class="taxonomy_link" href="{{ get_taxonomy_url(kind=k, name=t) }}">#{{ t }}</a>
 	{%- endfor %}
 {%- endfor %}
 </p>
-
-
-{{ page.content | safe }}
 
 </article>
 
