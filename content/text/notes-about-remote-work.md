@@ -6,9 +6,9 @@ updated = 2021-04-16
 [taxonomies]
 tags=["work", "docker", "remote"]
 +++
-	
+
 So I'm locked out of my apartment for about 7 weeks, with only a laptop and a
-keyboard. 
+keyboard.
 
 Here are some notes about my setup.
 
@@ -19,14 +19,13 @@ TLDR; probably not worth it.
 There is a native ARM64 build, but it comes with an [extensive list of known
 issues](https://docs.docker.com/docker-for-mac/apple-m1/#known-issues). In
 particular, emulation of x86-based containers is sketchy and the disk
-performance is [not very good]
-(https://github.com/docker/for-mac/issues/1592) when mounting host folders in
-the container.
+performance is [not very good](https://github.com/docker/for-mac/issues/1592)
+when mounting host folders in the container.
 
 Normally, I have access to a Windows (home) or Linux (office) machine which
 both offer a better docker experience compared to MacOS. Since my apartment
 will continue to have internet access, why run a gimped container setup on my
-MacBook Air when I can ~~do something stupid~~ learn some new stuff? 
+MacBook Air when I can ~~do something stupid~~ learn some new stuff?
 
 ;]
 
@@ -43,7 +42,7 @@ could send WOL packets from it instead? That would bypass the whole
 broadcast/IP trickery required to send WOL packets across the big and scary
 internet.
 
-I found a nice little program called [wol](https://github.com/sabhiram/go-wol) 
+I found a nice little program called [wol](https://github.com/sabhiram/go-wol)
 which let me save the MAC address of my Windows machine under an alias, which
 made the wakeup script self-explanatory.
 
@@ -65,7 +64,7 @@ command to put it back to sleep. Behold:
 ssh winathome -t 'cmd /c \"rundll32.exe powrprof.dll,SetSuspendState 0,1,0\"'
 ```
 
-Now it was time to automate these steps (as steps in a 
+Now it was time to automate these steps (as steps in a
 [tmuxinator](https://github.com/tmuxinator/tmuxinator)
 project) and move on to docker ~~shit~~ stuff!
 
@@ -87,8 +86,8 @@ ssh winathome -t 'cmd /k \"cd /dE:/work/xyz\"'
 
 This actually works surprisingly well, now I mostly do:
 
-- bring machine up: `tmuxinator start workday` 
-- work on project(s): `tmuxinator start/stop xyz` 
+- bring machine up: `tmuxinator start workday`
+- work on project(s): `tmuxinator start/stop xyz`
 - bring machine down: `tmuxinator stop workday`
 
 ## docker 4 windows login errors
@@ -112,13 +111,13 @@ del .aztoken
 ## interesting things
 
 I recently read about an open-source alternative to Tailscale - [innernet](https://blog.tonari.no/introducing-innernet).
-It requires a coordinator, which basically is my reason for using Tailscale. 
+It requires a coordinator, which basically is my reason for using Tailscale.
 
 Perhaps a dynamically updated DNS config pointing at my Raspberry PI could help? I see that [Cloudflare has an API](https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record) for interacting with DNS records.
 
 ## closing thoughts
 
-I don't really want to spend a lot of time on this type of stuff, primarily because I find it very addictive... 
+I don't really want to spend a lot of time on this type of stuff, primarily because I find it very addictive...
 
 That's all from me, let me know if you have any tips!
 
