@@ -1,6 +1,6 @@
 +++
-title = "notes about remote work"
-description = "ramblings of a madman about avoiding docker for mac and using windows from the command line"
+title = "running docker on windows over ssh"
+description = "ramblings about avoiding docker for mac and using windows from the command line"
 date = 2021-03-26
 updated = 2021-04-16
 [taxonomies]
@@ -14,8 +14,6 @@ Here are some notes about my setup.
 
 ## docker 4 mac
 
-TLDR; probably not worth it.
-
 There is a native ARM64 build, but it comes with an [extensive list of known
 issues](https://docs.docker.com/docker-for-mac/apple-m1/#known-issues). In
 particular, emulation of x86-based containers is sketchy and the disk
@@ -25,9 +23,7 @@ when mounting host folders in the container.
 Normally, I have access to a Windows (home) or Linux (office) machine and
 both offer a better docker experience compared to MacOS. Since my apartment
 will continue to have internet access, why run a gimped container setup on my
-MacBook Air when I can ~~do something pointless~~ learn some new stuff?
-
-;]
+MacBook Air when I can ~~do something pointless~~ learn something new??
 
 ## my setup
 
@@ -83,19 +79,18 @@ This actually works surprisingly well, now I mostly do:
 - work on project(s): `tmuxinator start/stop xyz`
 - bring machine down: `tmuxinator stop workday`
 
-## docker 4 windows login errors
+## troubles
 
 Of course, it was not exactly a smooth start:
 
 - `git` failed due to something related to a credential manager - "fixed" by switching remote from https to ssh
-- `az acr login` also failed due to similar error - resolved after [reading the fucking manual](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication)
+- azure container registry at $DAYJOB need a ~daily login `az acr login` which also failed due to similar error - resolved after [reading the fucking manual](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication)
 and [learning about docker credentials](https://www.projectatomic.io/blog/2016/03/docker-credentials-store/)
 
 ```cmd
-@rem remove "credsStore" key from config (seems to default to desktop, which does not work with ssh session)
+@rem remove "credsStore" key from config which does not work with ssh session and seems to be default on desktop
 jq "del(.credsStore)" %userprofile%\.docker\config.json | sponge %userprofile%\.docker\config.json
 
-@REM output --raw string field (without quotes)
 az acr login --name xyz --expose-token | jq -r .accessToken > .aztoken
 cat .aztoken | docker login xyz.azurecr.io -u 00000000-0000-0000-0000-000000000000 --password-stdin
 del .aztoken
