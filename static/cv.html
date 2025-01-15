@@ -56,26 +56,6 @@
 		padding: 0.5rem;
 	}
 
-	.icon {
-		min-width: 18px;
-		min-height: 18px;
-		margin-left: -1rem;
-		position: absolute;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-size: auto 80%;
-	}
-	.phone {
-		margin-left: -1.2rem;
-		background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjQgNjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDY0IDY0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZD0iTTU0LjEsNDguMmMtMS4xLTEuOS0yLjUtMy44LTMuOS01LjVjLTAuOC0xLTEuNy0yLTIuOC0yLjdjLTEuMy0wLjctMy4yLTEuMS00LjUtMC4yYy0wLjYsMC40LTEuMSwwLjctMS43LDEuMSAgYy0wLjUsMC40LTEuMSwwLjctMS42LDEuMWMtMS41LDEtMi44LDAuNC0zLjktMC43Yy0yLjgtMi43LTUuNS01LjUtNy45LTguNmMtMC45LTEuMS02LjItNy00LjctOC41YzAuMS0wLjEsMC4yLTAuMiwwLjMtMC4zICBjMC4yLTAuMiwwLjUtMC41LDAuNy0wLjdjMC41LTAuNSwwLjktMC45LDEuNC0xLjRjMC41LTAuNSwwLjktMC45LDEuNC0xLjRjMS4xLTEuMSwxLjEtMy4xLDAuNy00LjVjLTAuNC0xLjItMS4zLTIuMy0yLjEtMy4zICBjLTEuNC0xLjctMy0zLjUtNC43LTQuOWMtMS4yLTEtMi42LTEuOS00LjEtMmMtMC45LTAuMS0xLjksMC4yLTIuNiwwLjhjLTAuNSwwLjQtMSwwLjktMS41LDEuNGMtMS42LDEuNy0yLjgsNC0zLjQsNi4yICBjLTAuNSwxLjgtMC42LDMuNi0wLjQsNS40YzAuNCw0LjcsMi40LDguOCw0LjgsMTIuN2MyLjYsNC4zLDUuNSw4LjUsOC44LDEyLjNjNC43LDUuMywxMC45LDExLjMsMTcuOSwxMy4zYzEuNywwLjUsMy42LDAuOCw1LjQsMC42ICBjMi4zLTAuMSw0LjctMC45LDYuNy0yLjFjMC42LTAuNCwxLjItMC44LDEuNy0xLjJjMC43LTAuNiwxLjItMS41LDEuMy0yLjRDNTUuNSw1MSw1NC45LDQ5LjUsNTQuMSw0OC4yeiI+PC9wYXRoPjwvc3ZnPg==");
-	}
-	.icon.email {
-		min-width: 20px;
-		min-height: 20px;
-		margin-left: -1.25rem;
-		background-image: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBhdGggZD0iTTg0LjYxNywxOS44NUgxNS4zODNjLTMuNTEzLDAtNi4zODcsMi44NzQtNi4zODcsNi4zODh2NDcuNTI0YzAsMy41MTIsMi44NzUsNi4zODgsNi4zODcsNi4zODhoNjkuMjMyICBjMy41MTQsMCw2LjM4Ny0yLjg3Niw2LjM4Ny02LjM4OFYyNi4yMzdDOTEuMDA0LDIyLjcyNCw4OC4xMjksMTkuODUsODQuNjE3LDE5Ljg1eiBNODEuMTgyLDY3LjI1MiAgYzAuODg5LDAuODM3LDAuOTMyLDIuMjM2LDAuMDk4LDMuMTI3Yy0wLjQzNiwwLjQ2NS0xLjAyNSwwLjY5OC0xLjYxNSwwLjY5OGMtMC41NDMsMC0xLjA4Ni0wLjE5OS0xLjUxNC0wLjYwMUw1OS45OCw1My40MjQgIGwtNy44NjcsNy42N2MtMC40MjgsMC40Mi0wLjk4NiwwLjYyOS0xLjU0MywwLjYyOWMtMC41NDMsMC0xLjA4OC0wLjE5OS0xLjUxNS0wLjZsLTguOTc3LTguNDI2bC0xOC4yLDE3Ljc1ICBjLTAuNDI5LDAuNDIxLTAuOTg2LDAuNjMtMS41NDUsMC42M2MtMC41NzUsMC0xLjE1LTAuMjI2LTEuNTg0LTAuNjY5Yy0wLjg1My0wLjg3Ni0wLjgzNS0yLjI3NSwwLjA0LTMuMTI4bDE4LjA1OS0xNy42MTMgIGwtMTguMDI3LTE2LjkyYy0wLjg5MS0wLjgzNy0wLjkzNi0yLjIzNS0wLjEtMy4xMjZjMC44MzctMC44OTMsMi4yMzYtMC45MzUsMy4xMjctMC4xbDI4LjY5MywyNi45MjdsMjcuNTgtMjYuODk3ICBjMC44NzMtMC44NTQsMi4yNzUtMC44MzQsMy4xMjksMC4wMzhjMC44NTIsMC44NzQsMC44MzQsMi4yNzUtMC4wNDEsMy4xMjlMNjMuMTUyLDUwLjMzMUw4MS4xODIsNjcuMjUyeiI+PC9wYXRoPjwvc3ZnPg==");
-	}
-
 	.profile {
 		background: #99ffce;
 		color: #2A2A2A;
@@ -143,96 +123,92 @@
 		</div>
 		<div style="text-align: center;">
 			<h1>Axel Smeets</h1>
-			<p class="tc">En kreativ och driven<br>Mjukvaruingenjör</p>
+			<p class="tc">En kreativ och själv-<br>gående dataingenjör</p>
 		</div>
 		<div style="text-align: right;">
-			<p><a class="email" href="mailto:axel@ojj.nu">axel@ojj.nu</a></p>
+			<p><a class="email" href="mailto:axel@smeten.se">axel@smeten.se</a></p>
             <p><a class="github" target="_blank" href="https://github.com/smeets">github.com/smeets</a></p>
-            <p><a class="home" target="_blank" href="https://ojj.nu">ojj.nu</a></p>
+            <p><a class="home" target="_blank" href="https://smeten.se">hem</a></p>
 		</div>
-		<p style="text-align: right; flex-grow: 1;">
-            9307298910
-            <br><br>
-            tel. 070-6878816
-            <br><br>
-            Lund, Skåne
-		</p>
+		<div style="text-align: right; flex-grow: 1;">
+            <p>9307298910</p>
+            <p>tel. 070-6878816</p>
+            <p>Lund, Skåne</p>
+		</div>
 	</div>
 
     <div>
-        <h2>Profil</h2>
+        <h2>About me</h2>
 
 		<p style="max-width: 40rem; line-height: 1.5rem;">
-
             Jag är en eftertänksam och självgående dataman med erfarenhet inom
-            systemprogrammering, webbutveckling, nätverksprotokoll,
-            automatisering, datamodellering och visualisering samt säkerhet.
+            design och utveckling av distribuerade system.
             Mitt intresseområde är brett och jag tar vara på alla möjligheter
             att fördjupa och utvidga mina kunskaper. Mitt personliga motto är
             att använda rätt verktyg från min snickarlåda för att bygga effektiva
             och målinriktade lösningar.
+        </p>
 
-    		<br><br>
-
-            Som 12-åring fick jag upp av en slump upp ögonen för
-            programmering och började ganska snabbt göra "maps" till Warcraft
-            3. Intresset höll i sig och några år senare befann jag mig på
+		<p style="max-width: 40rem; line-height: 1.5rem;">
+            Som 12-åring fick jag upp av en slump upp ögonen för programmering
+            och började ganska snabbt göra <i>custom maps</i> till Warcraft
+            3. Intresset spårade ur och några år senare befann jag mig på
             institutionen för datateknik i Lund.
+		</p>
 
-            <br><br>
-
+		<p style="max-width: 40rem; line-height: 1.5rem;">
             Utanför arbetet gillar jag att hacka på spelmotorer, kompilatorer
             och andra grejer under rubriken "learning-by-doing". Vid sidan av
             det tekniska har jag en stor passion för <a
             href="https://sirdivealot.com" target="_blank">dykning &
             undervattensfoto</a> och småskaligt, hederligt hembrygge.
-
 		</p>
     </div>
 
-	<h2>Erfarenhet</h2>
+
+	<h2>Experience</h2>
+
+	<div class="exp"> <!-- lingio -->
+		<div class="wrap">
+			<div class="exp-details">
+                <div>
+    				<span class="what">Backend Developer (Remote)</span>
+					<span class="where">Lingio AB, Stockholm</span>
+                </div>
+				<span class="when">2021 - Current</span>
+			</div>
+			<p class="desc">
+                <ul>
+                    <li>Design & implementation of a caching backend with typesafety using codegen</li>
+                    <li>Leading observability effort through our codebase from prototype to rollout</li>
+                    <li>Vidareutveckling av existerande samt design och implementation av nya ~domainservices~</li>
+                    <li>Implementation av vår detektera-och-fixa-buggar-före-features filosofi</li>
+                    <li>Blameless postmortem template</li>
+                    <li>Informell klusteroperatör</li>
+                    <li>Övrigt: ena halvan av den tekniska intervjun</li>
+                </ul>
+			</p>
+		</div>
+	</div> <!-- lingio -->
 
 	<div class="exp"> <!-- on-iq -->
 		<div class="wrap">
 			<div class="exp-details">
                 <div>
-    				<span class="what">Konsult / Software Developer</span>
+    				<span class="what">Consultant / Software Developer</span>
 					<span class="where">ON-IQ Solutions AB, Lund</span>
                 </div>
-				<span class="when">2018 - Pågår</span>
+				<span class="when">2018 - 2021</span>
 			</div>
 			<p class="desc">
                 <ul>
                     <li> Litet team, stort eget ansvar, ofta i direkt kontakt med uppdragsgivare.</li>
-                    <li> Optimerade datainsamlingsprocesser 10X genom offline processing och cachning av metadata.</li>
+                    <li> Optimerade datainsamlingsprocesser 10X genom offline preprocessing och "smart" cachning.</li>
 					<li> Ledde migration av ett flertal system till containers & kubernetes.</li>
-                    <li> Byggt Expo-appar för Android och iOS.</li>
+                    <li> Byggt Expo-appar för Android och iOS med React-Native.</li>
 					<li> Designade och implementerade ett distribuerat system för både video-on-demand och livestreaming av tusentals videoströmmar.</li>
-                    <li> Designade och implementerade ett system för on-premise, anonymiserad video processing baserat på maskininlärning.</li>
+                    <li> Designade och implementerade ett system för on-premise, anonymiserad video processing baserat på EdgeTPU med tillhörande webui i Mithril. Från debootstrap till adminportal.</li>
                     <li> Övrigt: intervju & onboarding av nya kollegor</li>
-                    <li><ul class="kws">
-                        <li>Web Frontend:</li>
-                        <li>Mithril</li>
-                        <li>Angular</li>
-                        <li>React & React-Native</li>
-                        <li>Web Backend:</li>
-                        <li>NodeJS</li>
-                        <li>MongoDB</li>
-                        <li>puppeteer</li>
-                        <li>PostgreSQL</li>
-                        <li>Systemutveckling:</li>
-                        <li>RabbitMQ / ZMQ</li>
-                        <li>Golang</li>
-                        <li>MySQL</li>
-                        <li>DevOps:</li>
-                        <li>OpenVPN</li>
-                        <li>Docker / Kubernetes</li>
-                        <li>ELK</li>
-                        <li>Machine Learning:</li>
-                        <li>Python</li>
-                        <li>tensorflow</li>
-                        <li>EdgeTPU</li>
-                    </ul></li>
                 </ul>
 			</p>
 		</div>
@@ -250,16 +226,9 @@
 			<p class="desc">
                 <ul>
                     <li> Projektanställd inom Software Engineering Research Group (SERG)</li>
-                    <li> Design och implementering av RESTful API.</li>
+                    <li> Modellering och visualisering av forskningsfrågor och resultat i webbläsaren.</li>
+                    <li> Design och implementering av backend med stöd för dynamiska taxonomier och forskningssamarbete.</li>
                     <li> Introduktion och handledning av nya amanuenser inom projektet. </li>
-    				<li><ul class="kws">
-    					<li>Java</li>
-    					<li>maven</li>
-    					<li>neo4j</li>
-    					<li>DevOps</li>
-                        <li>NodeJs</li>
-    					<li>HTML / CSS</li>
-    				</ul></li>
                 </ul>
 			</p>
 		</div>
@@ -269,7 +238,7 @@
 		<div class="wrap">
             <div class="exp-details">
                 <div>
-                    <span class="what">Medgrundare</span>
+                    <span class="what">Co-founder</span>
                     <span class="where">handelsbolaget shai, Lund</span>
                 </div>
                 <span class="when">2014 - 2016</span>
@@ -279,14 +248,6 @@
                 <ul>
                     <li> Design, utveckling och projektledning av app-relaterade projekt.</li>
                     <li> Appar för Android & iOS med delad kodbas.</li>
-                    <li><ul class="kws">
-                        <li>cordova / PhoneGap</li>
-                        <li>NodeJS</li>
-                        <li>HTML / CSS</li>
-                        <li>Golang</li>
-                        <li>Android</li>
-                        <li>iOS</li>
-                    </ul></li>
                 </ul>
 			</p>
 		</div>
@@ -299,16 +260,12 @@
                     <span class="what">IT-konsult</span>
                     <span class="where">Zoom Arkitekter AB, Lund</span>
                 </div>
-                <span class="when">2013 - 2020</span>
+                <span class="when">2013 - 2023</span>
             </div>
 			<p class="desc">
                 <ul>
-                    <li> Huvudansvarig för nätverksdrift och backuplösningar.</li>
-                    <li> Remote-work system.</li>
-                    <li><ul class="kws">
-                        <li>WireGuard</li>
-                        <li>FreeNAS</li>
-                    </ul></li>
+                    <li> Huvudansvarig för nätverksdrift och backuplösningar baserat på FreeNAS.</li>
+                    <li> Remote-work system mha Wireguard.</li>
                 </ul>
 			</p>
 		</div>
@@ -327,9 +284,6 @@
                 <ul>
                     <li> Handledning av studenter inom programmeringskurser i Java.</li>
                     <li> Introduktionskursen & fortsättningskursen.</li>
-                    <li><ul class="kws">
-                        <li>Java</li>
-                    </ul></li>
                 </ul>
 			</p>
 		</div>
@@ -354,7 +308,8 @@
             </p>
         </div>
     </div> <!-- msc -->
-    <div class="exp"> <!-- msc -->
+
+    <div class="exp"> <!-- gym -->
         <div class="wrap">
             <div class="exp-details">
                 <div>
@@ -370,7 +325,7 @@
                 </ul>
             </p>
         </div>
-    </div> <!-- msc -->
+    </div> <!-- gym -->
 
 </article>
 </body>
