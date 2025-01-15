@@ -20,8 +20,8 @@ $blue:         hsl(217, 71%,  53%)
 $purple:       hsl(271, 100%, 71%)
 $red:          hsl(348, 86%, 61%)
 
-$family-sans-serif: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default
-$family-monospace: monospace !default
+$family-monospace: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Oxygen, Fira Sans, Droid Sans, Helvetica Neue, Arial !default
+$family-sans-serif: $family-monospace
 $render-mode: optimizeLegibility !default
 
 $size-1: 3rem !default
@@ -102,7 +102,7 @@ header
   margin: 0 auto
 
   .navbar-item
-    font-family: monospace
+    font-family: $family-monospace
     padding: 8px
 
     &:last-child
@@ -146,10 +146,9 @@ pre
   padding: 1rem
   margin: 1rem 0rem 1rem 0rem
   overflow-x: auto
+  font-family: $family-monospace
 
 h1, h2, h3, h4, h5, h6
-  font-family: monospace
-  font-size: 1rem
-  padding-bottom: 5px 
-  text-transform: uppercase
+  font-family: $family-monospace
+  padding-bottom: 5px
   border-bottom: 1px solid var(--color-link)
