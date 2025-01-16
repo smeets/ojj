@@ -5,9 +5,9 @@ date = 2020-10-10
 description = "Ye olde deal scraper"
 
 [extra]
-svclink = "http://tuna.ojj.nu"
+svclink = ""
 repolink = "https://github.com/smeets/ica-tuna"
-archived = false
+archived = true
 +++
 
 Shitty price scraper and tracker for the neighbourhood supermarket: ICA Tuna.

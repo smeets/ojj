@@ -4,9 +4,9 @@ date = 2020-10-01
 description = "A decluttered, simple UFC mirror."
 
 [extra]
-svclink = "https://bonk.ojj.nu"
+svclink = ""
 repolink = "https://github.com/smeets/bonk"
-archived = false
+archived = true
 +++
 
-A decluttered, simple UFC mirror. Updates hourly.
+A decluttered, simple UFC mirror with hourly updates.
