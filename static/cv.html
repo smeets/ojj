@@ -17,12 +17,10 @@
 	.what { color: #444; }
 	.where, .when  { color: #606060; }
 
-	a {
-		color: #333 !important;
-		/*text-decoration: none;*/
+	p {
+		max-width: 40rem;
+		line-height: 1.5rem;
 	}
-    a::before { content:"["; }
-    a::after { content: "]"; }
 
 	.space1 { margin-top: 2rem; margin-bottom: 2rem; }
 	.space2 { margin-top: 4rem; margin-bottom: 4rem; }
@@ -126,9 +124,9 @@
 			<p class="tc">En kreativ och själv-<br>gående dataingenjör</p>
 		</div>
 		<div style="text-align: right;">
-			<p><a class="email" href="mailto:axel@smeten.se">axel@smeten.se</a></p>
+			<p><a class="email" href="mailto:axel@ojj.nu">axel@smeten.se</a></p>
             <p><a class="github" target="_blank" href="https://github.com/smeets">github.com/smeets</a></p>
-            <p><a class="home" target="_blank" href="https://smeten.se">hem</a></p>
+            <p><a class="home" target="_blank" href="https://ojj.nu">hem</a></p>
 		</div>
 		<div style="text-align: right; flex-grow: 1;">
             <p>9307298910</p>
@@ -140,7 +138,7 @@
     <div>
         <h2>About me</h2>
 
-		<p style="max-width: 40rem; line-height: 1.5rem;">
+		<p>
             Jag är en eftertänksam och självgående dataman med erfarenhet inom
             design och utveckling av distribuerade system.
             Mitt intresseområde är brett och jag tar vara på alla möjligheter
@@ -149,24 +147,52 @@
             och målinriktade lösningar.
         </p>
 
-		<p style="max-width: 40rem; line-height: 1.5rem;">
+		<p>
             Som 12-åring fick jag upp av en slump upp ögonen för programmering
             och började ganska snabbt göra <i>custom maps</i> till Warcraft
             3. Intresset spårade ur och några år senare befann jag mig på
             institutionen för datateknik i Lund.
 		</p>
 
-		<p style="max-width: 40rem; line-height: 1.5rem;">
+		<p>
+
             Utanför arbetet gillar jag att hacka på spelmotorer, kompilatorer
             och andra grejer under rubriken "learning-by-doing". Vid sidan av
             det tekniska har jag en stor passion för <a
-            href="https://sirdivealot.com" target="_blank">dykning &
-            undervattensfoto</a> och småskaligt, hederligt hembrygge.
+            href="https://sirdivealot.com">dykning & undervattensfoto</a>
+            (tyvärr död) och småskaligt, hederligt hembrygge.
+
 		</p>
+
     </div>
 
 
 	<h2>Experience</h2>
+	<div class="exp"> <!-- blubs -->
+		<div class="wrap">
+			<div class="exp-details">
+                <div>
+    				<span class="what">Golang</span>
+					<span class="where">web servers, networked systems, tools</span>
+                </div>
+				<span class="when">7+ yrs</span>
+			</div>
+			<div class="exp-details">
+                <div>
+    				<span class="what">Web</span>
+					<span class="where">http, js, html, css, tcp, pki</span>
+                </div>
+				<span class="when">10+ yrs</span>
+			</div>
+			<div class="exp-details">
+                <div>
+    				<span class="what">Systems</span>
+					<span class="where">git, ssh, tcp, udp, zmq, mqtt, linux, k8s</span>
+                </div>
+				<span class="when"><a href="https://www.benkuhn.net/blub/">blub studies</a></span>
+			</div>
+		</div>
+	</div> <!-- blubs -->
 
 	<div class="exp"> <!-- lingio -->
 		<div class="wrap">
@@ -183,8 +209,10 @@
                     <li>Leading observability effort through our codebase from prototype to rollout</li>
                     <li>Vidareutveckling av existerande samt design och implementation av nya ~domainservices~</li>
                     <li>Implementation av vår detektera-och-fixa-buggar-före-features filosofi</li>
+                    <li>Designing content-addressable audio synthesis architecture</li>
                     <li>Blameless postmortem template</li>
-                    <li>Informell klusteroperatör</li>
+                    <li>Informell klusteroperatör (kubernetes, docker-compose)</li>
+                    <li>Tech: Golang, spanner, pubsub, redis, openapi, </li>
                     <li>Övrigt: ena halvan av den tekniska intervjun</li>
                 </ul>
 			</p>
@@ -202,13 +230,14 @@
 			</div>
 			<p class="desc">
                 <ul>
-                    <li> Litet team, stort eget ansvar, ofta i direkt kontakt med uppdragsgivare.</li>
-                    <li> Optimerade datainsamlingsprocesser 10X genom offline preprocessing och "smart" cachning.</li>
-					<li> Ledde migration av ett flertal system till containers & kubernetes.</li>
-                    <li> Byggt Expo-appar för Android och iOS med React-Native.</li>
-					<li> Designade och implementerade ett distribuerat system för både video-on-demand och livestreaming av tusentals videoströmmar.</li>
-                    <li> Designade och implementerade ett system för on-premise, anonymiserad video processing baserat på EdgeTPU med tillhörande webui i Mithril. Från debootstrap till adminportal.</li>
-                    <li> Övrigt: intervju & onboarding av nya kollegor</li>
+                    <li>Litet team, stort eget ansvar, ofta i direkt kontakt med uppdragsgivare.</li>
+                    <li>Optimerade datainsamlingsprocesser 10X genom offline preprocessing och "smart" cachning.</li>
+					<li>Ledde migration av ett flertal system till containers & kubernetes.</li>
+                    <li>Byggt Expo-appar för Android och iOS med React-Native.</li>
+					<li>Designade och implementerade ett distribuerat system för både video-on-demand och livestreaming av tusentals videoströmmar.</li>
+                    <li>Designade och implementerade ett system för on-premise, anonymiserad video processing baserat på EdgeTPU med tillhörande webui i Mithril. Från debootstrap till adminportal.</li>
+                    <li>Tech: Golang, python, javascript, bash (🙃)</li>
+                    <li>Övrigt: intervju & onboarding av nya kollegor</li>
                 </ul>
 			</p>
 		</div>
@@ -225,10 +254,11 @@
             </div>
 			<p class="desc">
                 <ul>
-                    <li> Projektanställd inom Software Engineering Research Group (SERG)</li>
-                    <li> Modellering och visualisering av forskningsfrågor och resultat i webbläsaren.</li>
-                    <li> Design och implementering av backend med stöd för dynamiska taxonomier och forskningssamarbete.</li>
-                    <li> Introduktion och handledning av nya amanuenser inom projektet. </li>
+                    <li>Projektanställd inom Software Engineering Research Group (SERG)</li>
+                    <li>Modellering och visualisering av forskningsfrågor och resultat i webbläsaren.</li>
+                    <li>Design och implementering av backend med stöd för dynamiska taxonomier och forskningssamarbete.</li>
+                    <li>Introduktion och handledning av nya amanuenser inom projektet. </li>
+                    <li>Tech: java, neo4j (backend); js, html, css (frontend)</li>
                 </ul>
 			</p>
 		</div>
@@ -246,8 +276,9 @@
 
 			<p class="desc">
                 <ul>
-                    <li> Design, utveckling och projektledning av app-relaterade projekt.</li>
-                    <li> Appar för Android & iOS med delad kodbas.</li>
+                    <li>Design, utveckling och projektledning av app-relaterade projekt.</li>
+                    <li>Appar för Android & iOS med delad kodbas.</li>
+                    <li>Tech: Golang, PhoneGap (js, html, css)</li>
                 </ul>
 			</p>
 		</div>
