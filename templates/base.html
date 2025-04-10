@@ -19,12 +19,7 @@
 
 <body>
     <header>
-        <a class="navbar-item" href="/">Home</a>
-        {% set root = get_section(path="_index.md", metadata_only=true) %}
-        {% for a in root.subsections %}
-            {% set s = get_section(path=a, metadata_only=true) %}
-            <a class="navbar-item" href="{{ s.permalink }}">{{ s.title }}</a>
-        {% endfor %}
+        <a class="navbar-item" href="/">ojj home</a>
     </header>
 
     <main>
