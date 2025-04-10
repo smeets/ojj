@@ -5,5 +5,4 @@ page_template = "blogpost.html"
 insert_anchor_links = "left"
 +++
 
-
-Words fail to describe.
+Words fail.
