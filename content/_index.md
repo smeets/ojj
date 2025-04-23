@@ -4,21 +4,20 @@ title = "Home"
 
 &nbsp;
 
-&nbsp;
-
-
 Welcome to my little corner on the world wide web :)
 
 Let the *beep* *bop* begin.
 
 &nbsp;
 
-[Notes](/text)
+- [Notes](/text)
 
-[Projects](/projects)
+- [Projects](/projects)
 
-swedish [cv.html](/cv.html)
+&nbsp;
 
 [github.com/smeets](https://github.com/smeets)
 
-[senior backend developer @ lingio.com](https://lingio.com)
+[cv.html](/cv.html) in swedish
+
+[senior backend developer @ lingio](https://lingio.com)
