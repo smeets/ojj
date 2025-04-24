@@ -4,7 +4,7 @@ description = "a new machine"
 date = 2025-04-10
 draft = false
 [taxonomies]
-tags=["work", "laptop", "dotfiles", "setup"]
+tags=["work", "laptop", "distro"]
 +++
 
 A while back, my until-then kind-of-trusty Dell XPS 13, stopped charging via
