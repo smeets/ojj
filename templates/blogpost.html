@@ -6,11 +6,8 @@
 
 <h1>{{ page.title | safe }}</h1>
 
-{{ page.content | safe }}
-
-
 <p class="blogpost_intro">
-{{ page.date | date(format="%B %d, %Y") }}
+✍ {{ page.date | date(format="%B %d, %Y") }}
 {% if page.updated %}(updated {{ page.updated | date(format="%B %d, %Y") }}){% endif %}
 tagged
 {%- for k, v in page.taxonomies %}
@@ -20,6 +17,9 @@ tagged
 	{%- endfor %}
 {%- endfor %}
 </p>
+
+
+{{ page.content | safe }}
 
 </article>
 
