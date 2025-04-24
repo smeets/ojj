@@ -10,14 +10,12 @@ Let the *beep* *bop* begin.
 
 &nbsp;
 
-- [Notes](/text)
+- Some of my [notes](/text)
 
-- [Projects](/projects)
+- Attempt to catalogue my [projects](/projects)
 
 &nbsp;
 
-[github.com/smeets](https://github.com/smeets)
-
 [cv.html](/cv.html) in swedish
 
-[senior backend developer @ lingio](https://lingio.com)
+senior backend developer @ [lingio](https://lingio.com)
