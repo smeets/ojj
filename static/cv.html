@@ -5,20 +5,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style type="text/css">
-	html, body { margin: 0; font-size: 18px; background-color: #FEFEFE; }
+	html, body { margin: 0; font-size: 1rem; background-color: #FEFEFE; max-width: 100vw; }
 	h1 {
 		color: #222; font-size: 1.8rem;
 		text-shadow: 0px 0px 2px rgba(150,150,150,0.5);
 		margin: 0;
 	}
-	h2 { color: #444; margin-bottom: 0; }
+	h2 { color: #444; margin-bottom: 0; border-bottom: 2px solid black; }
 	.tc { text-align: center; line-height: 1.5rem; }
 
 	.what { color: #444; }
 	.where, .when  { color: #606060; }
 
 	p {
-		max-width: 40rem;
 		line-height: 1.5rem;
 	}
 
@@ -121,16 +120,16 @@
 		</div>
 		<div style="text-align: center;">
 			<h1>Axel Smeets</h1>
-			<p class="tc">En kreativ och själv-<br>gående dataingenjör</p>
+			<!-- <p class="tc">En kreativ och själv-<br>gående dataingenjör</p> -->
+			<p class="tc">A creative and<br>autonomous <br> software engineer</p>
 		</div>
 		<div style="text-align: right;">
-			<p><a class="email" href="mailto:axel@ojj.nu">axel@smeten.se</a></p>
+			<p><a class="email" href="mailto:axel@smeten.se">axel@smeten.se</a></p>
             <p><a class="github" target="_blank" href="https://github.com/smeets">github.com/smeets</a></p>
-            <p><a class="home" target="_blank" href="https://ojj.nu">hem</a></p>
+            <p><a class="home" target="_blank" href="https://ojj.nu">home on the net</a></p>
 		</div>
 		<div style="text-align: right; flex-grow: 1;">
-            <p>9307298910</p>
-            <p>tel. 070-6878816</p>
+            <p>tel. 070 687 88 16</p>
             <p>Lund, Skåne</p>
 		</div>
 	</div>
@@ -140,21 +139,22 @@
 
 		<p>
 
-            Jag är en eftertänksam och självgående dataman med erfarenhet inom
-            design och utveckling av distribuerade system.
-            Mitt intresseområde är brett och jag tar vara på alla möjligheter
-            att fördjupa och utvidga mina kunskaper. Mitt personliga motto är
-            att använda rätt verktyg från min snickarlåda för att bygga effektiva
-            och målinriktade lösningar.
+            I am a thoughtful and self-motivated computer scientist with
+            experience in the design and development of distributed systems.
+            My area of interest is broad, and I seize every opportunity to
+            deepen and expand my knowledge. My personal motto is to use the
+            right tools from my toolbox to build effective and goal-oriented
+            solutions.
+
 
         </p>
 
 		<p>
 
-			Som 12-åring fick jag upp av en slump upp ögonen för programmering
-			när jag gick gick med i ett community som gjorde <i>custom
-			maps</i> till Warcraft 3. Intresset spårade ur och några år
-			senare befann jag mig på institutionen för datateknik i Lund.
+			At the age of 12, I stumbled upon programming by chance when I
+			joined a community that made <em>custom maps</em> for Warcraft
+			3. This interest spiraled out of control, and a few years
+			later, I found myself at the Department of Computer Science in Lund.
 
 		</p>
 
@@ -166,12 +166,18 @@
             href="https://sirdivealot.com">dykning & undervattensfoto</a>
             (tyvärr död) och småskaligt, hederligt hembrygge.
 
+            Outside of work, I enjoy tinkering with game engines, compilers,
+            and other things under the "learning-by-doing" motto. Besides the
+            technical, I have a great passion for <a href="https://sirdivealot.com">diving & underwater</a>
+            photography (unfortunately defunct). small-scale
+            homebrewing and tinkering with espresso.
+
 		</p>
 
     </div>
 
 
-	<h2>Experience</h2>
+	<h2>Technical Skills</h2>
 	<div class="exp"> <!-- blubs -->
 		<div class="wrap">
 			<div class="exp-details">
@@ -180,6 +186,20 @@
 					<span class="where">web servers, networked systems, tools</span>
                 </div>
 				<span class="when">7+ yrs</span>
+			</div>
+			<div class="exp-details">
+                <div>
+    				<span class="what">Javascript</span>
+					<span class="where">Node.js, Next, React, mithril, web servers</span>
+                </div>
+				<span class="when">7+ yrs</span>
+			</div>
+			<div class="exp-details">
+                <div>
+    				<span class="what">Python</span>
+					<span class="where">ZeroMQ, tensorflow, numpy</span>
+                </div>
+				<span class="when">3 yrs</span>
 			</div>
 			<div class="exp-details">
                 <div>
@@ -193,55 +213,74 @@
     				<span class="what">Systems</span>
 					<span class="where">git, ssh, tcp, udp, zmq, mqtt, linux, k8s</span>
                 </div>
-				<span class="when"><a href="https://www.benkuhn.net/blub/">blub studies</a></span>
+				<span class="when">7+ yrs</span>
 			</div>
 		</div>
 	</div> <!-- blubs -->
 
-	<div class="exp"> <!-- lingio -->
+	<h2>Experience</h2>
+	<div class="exp"> <!-- lingio 2 -->
 		<div class="wrap">
 			<div class="exp-details">
                 <div>
-    				<span class="what">Backend Developer (Remote)</span>
+    				<span class="what">Senior Backend Developer (Fully Remote)</span>
 					<span class="where">Lingio AB, Stockholm</span>
                 </div>
-				<span class="when">2021 - Current</span>
+				<span class="when">2025 - Current</span>
 			</div>
 			<p class="desc">
                 <ul>
-                    <li>Design & implementation of a caching backend with typesafety using codegen</li>
-                    <li>Leading observability effort through our codebase from prototype to rollout</li>
-                    <li>Vidareutveckling av existerande samt design och implementation av nya ~domainservices~</li>
-                    <li>Implementation av vår detektera-och-fixa-buggar-före-features filosofi</li>
-                    <li>Designing content-addressable audio synthesis architecture</li>
-                    <li>Blameless postmortem template</li>
-                    <li>Informell klusteroperatör (kubernetes, docker-compose)</li>
-                    <li>Tech: Golang, spanner, pubsub, redis, openapi, </li>
-                    <li>Övrigt: ena halvan av den tekniska intervjun</li>
+                    <li>Co-developing and performing security audit with CTO</li>
+                    <li>Leading and shipping cross-team features</li>
                 </ul>
 			</p>
 		</div>
-	</div> <!-- lingio -->
+	</div> <!-- lingio 2-->
+
+	<div class="exp"> <!-- lingio 1 -->
+		<div class="wrap">
+			<div class="exp-details">
+                <div>
+    				<span class="what">Backend Developer (Fully Remote)</span>
+					<span class="where">Lingio AB, Stockholm</span>
+                </div>
+				<span class="when">2021 - 2025</span>
+			</div>
+			<p class="desc">
+                <ul>
+                    <li>Design & implementation of a type-safe caching infrastructure using codegen</li>
+					<li>Leading observability effort through our codebase from prototype to rollout</li>
+					<li>Further development of existing, and design and implementation of new ~domain services~</li>
+					<li>Implementation of our "detect and fix bugs before features" philosophy</li>
+                    <li>Design & implementation of a content-addressable audio synthesis architecture</li>
+					<li>Blameless postmortem template</li>
+					<li>Informal cluster operator (kubernetes, docker-compose)</li>
+					<li>Tech: Golang, spanner, pubsub, redis, openapi,</li>
+					<li>Other: one half of the technical interview</li>
+                </ul>
+			</p>
+		</div>
+	</div> <!-- lingio 1 -->
 
 	<div class="exp"> <!-- on-iq -->
 		<div class="wrap">
 			<div class="exp-details">
                 <div>
-    				<span class="what">Consultant / Software Developer</span>
+    				<span class="what">Software Developer Consultant</span>
 					<span class="where">ON-IQ Solutions AB, Lund</span>
                 </div>
 				<span class="when">2018 - 2021</span>
 			</div>
 			<p class="desc">
                 <ul>
-                    <li>Litet team, stort eget ansvar, ofta i direkt kontakt med uppdragsgivare.</li>
-                    <li>Optimerade datainsamlingsprocesser 10X genom offline preprocessing och "smart" cachning.</li>
-					<li>Ledde migration av ett flertal system till containers & kubernetes.</li>
-                    <li>Byggt Expo-appar för Android och iOS med React-Native.</li>
-					<li>Designade och implementerade ett distribuerat system för både video-on-demand och livestreaming av tusentals videoströmmar.</li>
-                    <li>Designade och implementerade ett system för on-premise, anonymiserad video processing baserat på EdgeTPU med tillhörande webui i Mithril. Från debootstrap till adminportal.</li>
-                    <li>Tech: Golang, python, javascript, bash (🙃)</li>
-                    <li>Övrigt: intervju & onboarding av nya kollegor</li>
+                	<li>Small team, significant individual responsibility, often in direct contact with clients.</li>
+                	<li>Optimized data collection processes by 10X through offline preprocessing and "smart" caching.</li>
+                	<li>Led migration of several systems to containers & Kubernetes.</li>
+                	<li>Built Expo apps for Android and iOS with React-Native.</li>
+                	<li>Designed and implemented a distributed system for both video-on-demand and livestreaming of thousands of video streams.</li>
+                	<li>Designed and implemented a system for on-premise, anonymized video processing based on EdgeTPU with an accompanying web UI in Mithril. From riced grub, to debootstrap to admin portal.</li>
+                	<li>Tech: Golang, python, javascript, bash (🙃)</li>
+                	<li>Other: interviewing & onboarding new colleagues</li>
                 </ul>
 			</p>
 		</div>
