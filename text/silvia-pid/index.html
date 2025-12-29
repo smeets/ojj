@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    rancilio silva
+     - ojj</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <a class="navbar-item" href="/">ojj.</a>
+    </header>
+
+    <main>
+        
+<article>
+
+
+<h1>rancilio silva</h1>
+
+<p class="blogpost_intro">
+✍ April 25, 2025
+
+tagged
+	
+		<a class="taxonomy_link" href="https://ojj.nu/tags/coffee/">#coffee</a> 
+		<a class="taxonomy_link" href="https://ojj.nu/tags/diy/">#diy</a>
+</p>
+
+
+<p>So I’ve started my decent into <del>madness</del> espresso and went and bought a
+secondhand Rancilio Silva:</p>
+<p><img src="https://ojj.nu/text/silvia-pid/" alt="An image of a Rancilio Silva espresso machine in stainless steel" /></p>
+<p>It’s a simple machine. A 3-way valve. Vibration pump. Single boiler. Brew and
+steam thermostats. I honestly think that the most complex part is the
+EU-mandated energy saving module (but don’t ask me about long-lasting boiler
+design).</p>
+<h2 id="temp-surfing-woes"><a class="zola-anchor" href="#temp-surfing-woes" aria-label="Anchor link for: temp-surfing-woes">#</a>temp surfing woes</h2>
+<p>Most espresso <del>bullshit</del> science can be reduced to one
+thing–<em>reproducability</em>. The end goal is to make a good cup, and try to make
+that simple <em>and</em> easy. The general recommendation is to follow a list of
+steps ranked by impact, and check items off it as you go.</p>
+<ul>
+<li><strong>Beans:</strong> good quality &amp; fresh beans</li>
+<li><strong>Dosage:</strong> grind size x roast level x weight = volume in portafilter</li>
+<li><strong>Puck prep:</strong> it’s very possible to fuck this up</li>
+<li><strong>Brewing pressure:</strong> pressure at the group head should be 9 bar</li>
+<li><strong>Water temp:</strong> 92°C according to the italian espresso council</li>
+<li><strong>Pre-infusion:</strong> well, manufacturers need something to sell people new machines, right?</li>
+</ul>
+<p>This story is about brewing temperature. The Rancilio Silva has a single,
+insulated, ~800W boiler fed by a vibration pump. There is a little bit of
+wiring to control the brewer (on/off) with a thermostat (a kind of
+heat-sensitive controller) such that the boiler is only powered when &lt;80°C.</p>
+<p>If you haven’t been introduced to the world of regulators, let’s ask
+ourselves, how can the boiler heat water to temperature at-or-above 80°C when
+the thermostat cuts power at 80°C?</p>
+<ul>
+<li>The heating element is probably way hotter than 80°C. While turning it off
+will prevent the element from getting hotter, any residual heat will still
+affect the water.</li>
+<li>The thermostat measures the temperature of <em>the boiler</em> (on the outside,
+even), perhaps simplest thought of as the average temperature of the water
+inside the boiler with a bit of delay.</li>
+</ul>
+<p>All of this is a lot of text to basically say, thermostats are shit and it is
+impossible get accurate (92°C) and reliable (for every shot) brewing
+temperature.</p>
+<p>What do people on <del>reddit</del> internet recommend?</p>
+<blockquote>
+<p><em>“Just temp. surf!”</em></p>
+</blockquote>
+<p>What is this temp. surf you ask? I cannot fully explain the level of cope or
+madness with this approach. <em>Temperature surfing</em> means pushing the brew
+button, causing hot water to flow into the group head and cold water into the
+boiler, and hoping for the best. <em>THATS IT</em>.</p>
+<p>People are <em>arguing</em> that this works, <em>reliably</em>. I shit you not.</p>
+<p>Luckily we have <a rel="noopener noreferrer" target="_blank" href="https://github.com/clevercoffee">ze germans</a> who are too
+pragmatic for voodoo shit and solved this problem with a custom PCB, ESP32,
+solid state relay, power supply, temp. sensor and some wire. The idea?
+Replace the brew thermostat with a good old[PID controller]
+(https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller).</p>
+<p>About 6 months after buying the Rancilio Silva it was finally time to tackle
+the problem, imagined or not, of water temperature.</p>
+<h2 id="it-s-time-to-u-u-upgrade"><a class="zola-anchor" href="#it-s-time-to-u-u-upgrade" aria-label="Anchor link for: it-s-time-to-u-u-upgrade">#</a>it’s time to u-u-upgrade</h2>
+
+
+</article>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <hr>
+            <p>
+                © 2020-2025 Axel Smeets • <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+            </p>
+      </div>
+    </footer>
+</body>
+
+</html>
