@@ -6,9 +6,21 @@
 {{ section.content | safe }}
 
 {% for page in section.pages %}
-<p>
-  <a href="{{ page.permalink | safe }}">{{ page.title }}</a> {% if page.date %}({{ page.date }}){% endif %}
-</p>
+  {% if page.extra.weight >= 20 %}
+  {% set weight = "w20" %}
+  {% elif page.extra.weight >= 10 %}
+  {% set weight = "w10" %}
+  {% else %}
+  {% set weight = "w0" %}
+  {% endif %}
+
+  <a class="blog-item {{ weight }}" href="{{ page.permalink | safe }}">
+    <time class="date" datetime="{{ page.date }}">{{ page.date | date(format="%e %B %Y") }}</time>
+    <div class="fluid">
+      <span class="title">{{ page.title }}</span>
+      <span class="desc">{{ page.description }}</span>
+    </div>
+  </a>
 {% endfor %}
 
 

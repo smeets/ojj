@@ -3,6 +3,8 @@ title = "running docker on windows over ssh"
 description = "ramblings about avoiding docker for mac and using windows from the command line"
 date = 2021-03-26
 updated = 2021-04-16
+[extra]
+weight = 3
 [taxonomies]
 tags=["work", "docker", "remote"]
 +++

@@ -1,5 +1,6 @@
 $black:        hsl(0, 0%, 4%)
-$dark-canvas: rgb(8, 13, 15)
+$dark-canvas:  rgb(8, 13, 15)
+$brand:        oklch(.14 .056 19.9)
 
 $grey:         hsl(0, 0%, 48%)
 $grey-light:   hsl(0, 0%, 71%)
@@ -37,6 +38,12 @@ $max-width: 40rem + 13rem
 
 $md-min: 58rem
 
+img
+  display: block
+  max-width: 66%
+  margin-left: auto
+  margin-right: auto
+
 \:root 
   --color-text: #{$black}
   --color-text-sub: #{$grey}
@@ -45,6 +52,7 @@ $md-min: 58rem
   --color-link: #{$blue}
   --color-sweet: #{$turquoise}
   --color-sweet-2: #{$black}
+  --color-bg-2: #{$brand}
 
 @media (prefers-color-scheme: dark)
   \:root
@@ -53,6 +61,7 @@ $md-min: 58rem
     --color-text-sub: #{$grey-light}
     --color-link: #{$green}
     --color-sweet-2: #{$yellow}
+    --color-bg-2: #{$brand}
 
 a
   hyphens: none
@@ -92,12 +101,98 @@ h1,h2,h3,h4,h5,p
   padding-left: 0.5rem
   padding-right: 0.5rem
 
+.blog-item
+  display: block
+  color: var(--color-text)
+  text-decoration: none
+
+  transition: border-color,background-color .5s
+
+  display: flex
+  align-items: baseline
+  flex-direction: column
+
+  margin-top: 1rem
+  margin-bottom: 1rem
+
+  &:hover
+    background-color: var(--color-bg-2)
+    border-color: red
+
+  .fluid
+    display: flex
+    flex-direction: column
+    // justify-content:
+    flex-grow: 1
+
+  .date
+    min-width: 8rem
+  .title
+    text-decoration: underline
+  .desc
+    padding: 0.5rem 0 0 0
+
+  &.w0
+    .desc
+      display: none
+    .title
+      font-size: 0.8rem
+    .date
+      font-size: 0.8rem
+
+  &.w10
+    >*
+      padding-bottom: 0.2rem
+    .desc
+      font-size: 0.8rem
+    .title
+      font-size: 1.1rem
+    .date
+      font-size: 1rem
+
+  &.w20
+    >*
+      padding-bottom: 0.5rem
+    .desc
+      font-size: 1rem
+    .title
+      font-size: 1.4rem
+    .date
+      font-size: 1rem
+
+  @media (min-width:600px)
+    flex-direction: row
+    border: 1px solid gray
+
+    margin-top: 0.5rem
+    margin-bottom: 0.5rem
+
+    >*
+      padding: 0.5rem
+
+    &.w10
+      >*
+        padding-top: 0.5rem
+        padding-bottom: 0.5rem
+      .fluid
+        flex-direction: row
+        align-items: baseline
+      .desc
+        padding: 0 0 0 0.5rem
+
+    &.w20
+      >*
+        padding-top: 1rem
+        padding-bottom: 1rem
+
+
 body
   min-height: 100vh
   max-width: 80rem
   height: 100%
   display: flex
   flex-direction: column
+  margin: 0
 
 body > *
   padding-left: 2rem

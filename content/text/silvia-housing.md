@@ -1,9 +1,10 @@
 +++
-title = "rancilio silva part 1"
+title = "rancilio silva part 2"
 description = "going down the rabbit hole and installing a PID controller on my espresso machine"
-date = 2025-04-25
+date = 2026-01-21
+draft = true
 [extra]
-weight = 20
+weight = 10
 [taxonomies]
 tags=["coffee", "diy"]
 +++
