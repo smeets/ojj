@@ -1,13 +1,9 @@
-$black:        hsl(0, 0%, 4%)
-$dark-canvas:  rgb(8, 13, 15)
-$brand:        oklch(.14 .056 19.9)
-
 $grey:         hsl(0, 0%, 48%)
 $grey-light:   hsl(0, 0%, 71%)
 $grey-lighter: hsl(0, 0%, 86%)
 $grey-lightest: hsl(0, 0%, 93%)
 
-$white-ter:    hsl(0, 0%, 96%)
+$white-ter:    hsl(0, 0%, 86%)
 $white-bis:    hsl(0, 0%, 98%)
 $white:        hsl(0, 0%, 100%)
 $white-text:   rgb(201, 209, 217)
@@ -25,6 +21,82 @@ $family-monospace: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell
 $family-sans-serif: $family-monospace
 $render-mode: optimizeLegibility !default
 
+$max-width: 40rem + 13rem
+$md-min: 58rem
+
+\:root
+  --color-fg: rgb(255 255 255 / 87%)
+  --color-fg-2: #{$grey-light}
+
+  --color-bg: rgb(12 12 12)
+  --color-bg-2: rgb(24 24 24)
+
+  --color-link: #{$blue}
+  --color-sweet: #{$turquoise}
+  --color-link: #{$green}
+  --color-sweet-2: #{$yellow}
+
+  --font-size-default: 1rem
+
+
+html
+  font-size: var(--font-size-default)
+  overflow-y: scroll
+
+  background-color: var(--color-bg)
+  color: var(--color-fg)
+
+  -moz-text-size-adjust: none
+  -webkit-text-size-adjust: none
+  text-size-adjust: none
+
+  box-sizing: border-box
+  min-height: 100vh
+  min-width: 300px
+
+  padding: 1rem
+
+
+body
+  font-family: "helvetica neue", arial, sans-serif
+
+  max-width: $max-width
+
+  height: 100%
+  display: flex
+  flex-direction: column
+
+  margin: 0
+  line-height: 1.45em
+
+header
+  line-height: 18px
+
+
+main
+  flex-grow: 2
+
+
+header
+  padding-top: 1rem
+  padding-bottom: 1rem
+  padding-left: 0
+
+  .navbar-item
+    font-family: serif
+    font-size: 2rem
+    padding: 8px
+
+    &:last-child
+      padding-right: 0
+
+main
+  flex-grow: 2
+
+footer
+  padding-left: 0
+
+
 h1
   font-size: 2rem
 h2
@@ -34,68 +106,31 @@ h3
 h4
   font-size: 1rem
 
-$max-width: 40rem + 13rem
-
-$md-min: 58rem
 
 img
   display: block
-  max-width: 66%
+  max-width: 100%
+  max-height: 500px
   margin-left: auto
   margin-right: auto
 
-\:root 
-  --color-text: #{$black}
-  --color-text-sub: #{$grey}
-  --color-bg: #{$white-ter}
-  --color-bg-inv: #{$black}
-  --color-link: #{$blue}
-  --color-sweet: #{$turquoise}
-  --color-sweet-2: #{$black}
-  --color-bg-2: #{$brand}
-
-@media (prefers-color-scheme: dark)
-  \:root
-    --color-bg: #{$dark-canvas}
-    --color-text: #{$white-text}
-    --color-text-sub: #{$grey-light}
-    --color-link: #{$green}
-    --color-sweet-2: #{$yellow}
-    --color-bg-2: #{$brand}
-
+  @media (min-width:600px)
+    max-width: 66%
 a
   hyphens: none
   color: var(--color-link)
 
-  &.taxonomy_link
+  &:hover
     color: var(--color-sweet)
-    text-decoration: none
-
-    &:hover
-      color: var(--color-sweet-2)
 
 article
   p
     &.blogpost_intro
       font-style: italic
       margin-top: 0.25rem
-      color: var(--color-text-sub)
+      color: var(--color-fg-2)
   h1
     margin-bottom: 0
-    
-
-html
-  background-color: var(--color-bg)
-  color: var(--color-text)
-
-  font-family: $family-sans-serif
-  font-size: 16px
-  -moz-osx-font-smoothing: grayscale
-  -webkit-font-smoothing: antialiased
-  text-rendering: $render-mode
-  text-size-adjust: 100%
-  
-  min-width: 300px
 
 h1,h2,h3,h4,h5,p
   padding-left: 0.5rem
@@ -103,10 +138,9 @@ h1,h2,h3,h4,h5,p
 
 .blog-item
   display: block
-  color: var(--color-text)
   text-decoration: none
 
-  transition: border-color,background-color .5s
+  transition: all .5s
 
   display: flex
   align-items: baseline
@@ -114,10 +148,6 @@ h1,h2,h3,h4,h5,p
 
   margin-top: 1rem
   margin-bottom: 1rem
-
-  &:hover
-    background-color: var(--color-bg-2)
-    border-color: red
 
   .fluid
     display: flex
@@ -162,10 +192,14 @@ h1,h2,h3,h4,h5,p
 
   @media (min-width:600px)
     flex-direction: row
-    border: 1px solid gray
+    border: 1px solid var(--color-link)
 
     margin-top: 0.5rem
     margin-bottom: 0.5rem
+
+    &:hover
+      background-color: var(--color-bg-2)
+      border-color: var(--color-sweet)
 
     >*
       padding: 0.5rem
@@ -186,38 +220,6 @@ h1,h2,h3,h4,h5,p
         padding-bottom: 1rem
 
 
-body
-  min-height: 100vh
-  max-width: 80rem
-  height: 100%
-  display: flex
-  flex-direction: column
-  margin: 0
-
-body > *
-  padding-left: 2rem
-
-header, main, footer
-  max-width: $max-width
-
-header
-  padding-top: 1rem
-  padding-bottom: 1rem
-  padding-left: 0
-
-  .navbar-item
-    font-family: serif
-    font-size: 2rem
-    padding: 8px
-
-    &:last-child
-      padding-right: 0
-
-main
-  flex-grow: 2
-
-footer
-  padding-left: 0
 
 .container
   flex-grow: 1
@@ -228,7 +230,6 @@ footer
 p
   max-width: 50rem
   hyphens: auto
-  line-height: 140%
 
 .zola-anchor
   text-decoration: none
@@ -241,10 +242,10 @@ p
     margin-right: 0.5rem
 
 .archived
-  color: var(--color-text-sub)
+  color: var(--color-fg-2)
 
   > a
-    color: var(--color-text-sub)
+    color: var(--color-fg-2)
 
 pre
   padding: 1rem

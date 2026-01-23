@@ -1,6 +1,6 @@
 +++
 title = "asus rog flow z13"
-description = "a new machine"
+description = "a new machine without wi-fi and scroll, how will it end"
 date = 2025-04-10
 draft = false
 [extra]

@@ -11,7 +11,7 @@ tags=["coffee", "diy"]
 So I've started my decent into ~~madness~~ espresso and went and bought a
 secondhand Rancilio Silva:
 
-![An image of a Rancilio Silva espresso machine in stainless steel](/espresso1b.jpg)
+![An image of a Rancilio Silva espresso machine in stainless steel](/silvia-pid/espresso1b.jpg)
 
 It's a simple machine. A 3-way valve. Vibration pump. Single boiler. Brew and
 steam thermostats. I honestly think that the most complex part is the
@@ -48,7 +48,9 @@ the thermostat switches off at 80°C?
   the boiler.
 
 All of this is a lot of text to basically say that it is impossible to reliably pull shots with this machine at 92°C.
-How large effect will this temperature variance have, you ask. Not sure, I answer warily.
+
+How large effect will this temperature variance have on the taste, you ask.
+Not sure, I answer warily.
 
 ## how to surf on temperate internets
 
@@ -56,12 +58,13 @@ What do people on ~~reddit~~ internet recommend?
 
 > <em>"Just temp. surf!"</em>
 
-What is this temp. surf you ask? I cannot fully explain the level of cope or madness with this approach.
-_Temperature surfing_ means pushing the brew button, causing hot water to flow into the group head and cold water into the boiler, and hoping that by repeating this process you'll luck out and eventually start your show at the correct temperature. _THATS IT_.
+What is this temp. surf you ask?
+_Temperature surfing_ means pushing the brew button, causing hot water to flow into the group head and cold water into the boiler and then waiting for specific amount of time.
+People hope that by doing this procedure (and presumably also by praying to every diety known to man) they'll luck out and eventually start the show at the correct temperature.
 
-People are arguing that this works, _reliably_. I shit you not.
+And people argue that this works, _reliably_.
 
-Luckily we have [ze germans](https://github.com/clevercoffee) who are too pragmatic for voodoo shit and solved this problem with some engineering and electronics.
+Well, luckily we have [ze germans](https://github.com/clevercoffee) who don't believe in voodoo shit and are pragmatic enough to solve this problem with some engineering and electronics, with some open source software sprinkled on top.
 The gist?
 Replace the brew thermostat with a [Proportional Integral Derivative controller](https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller).
 
@@ -71,28 +74,33 @@ Replace the brew thermostat with a [Proportional Integral Derivative controller]
 About 6 months post-purchase it was finally time to tackle the problem, imagined or not, of water temperature.
 The first task was to solder, assemble and dryrun the system. Here's how it looks on my ~~coffee table~~ workbench:
 
-[]
+![How not to dry run your assembly](/silvia-pid/espresso6b.jpg)
 
-A few mis-wirings, blown sensors and incidents of money-not-well-spent later, it's good to go:
+A few mis-wirings, blown sensors and a few incidents of money-not-well-spent later, it's good to go:
 
 - Firmware upload works via USB
 - Firmware upload works via Wi-Fi (horay!)
 - Web interface works ~20% of the time (horay?)
 
 Next up, disassembly of the outer shell: a few screws are all that secure the outer chassis to the inner skeleton.
-Pictured is the insulated boiler with its two thermostats (brown knobs) on the right.
+Pictured is the insulated boiler with its two thermostats (brown knobs) on the right side, partially obscured by cabling.
 
-![An image of a Rancilio Silva espresso machine in stainless steel](/espresso2b.jpg)
+![Close-up image of the boiler inside a Rancilio Silva](/silvia-pid/espresso2b.jpg)
 
-There are two thermostats; one for brew and one for steam. Rancilio's own manual has the schematics and I actually read it, somewhat appreciative of the similarity with open source software.
-Replacing the brew thermostat is simple once I find a correctly-sized screw to thumb down the sensor to keep it in place. Snapped a picture before wrapping with some electro tape:
+The two thermostats are for controlling brew and steam temperature separately.
+Rancilio's own manual has the schematics and I actually read it, somewhat appreciative of the similarity with open source software.
+Replacing the brew thermostat is simple once I find a correctly-sized screw to thumb down the sensor to keep it in place.
 
-![A close up view of the newly installed temperature sensor where a thermostat used to be](/espresso3b.jpg)
+![A close up view of the newly installed temperature sensor where a thermostat used to be](/silvia-pid/espresso3b.jpg)
 
-Mounting the solid state relay, power supply and PCB is a little finicky but with the help of glue I manage a decent job. Finding a good place for the OLED screen, however, turns out to be quite the problem:
+Mounting the solid state relay, power supply and PCB is a little finicky.
+Here's me doing a final dry-run before ~~breaking any remaining warranty~~ committing myself to gluing the parts to the chassis.
 
-![An image of an OLED display showing the current boiler temperature](/espresso4b.jpg)
+![How not to dry run your assembly](/silvia-pid/espresso7b.jpg)
 
-I have some plans on 3D printing a display holder and attach it to the chassis using magnets. But that's for next time.
+Several hours later... it's done.
+Finding a good place for the OLED screen, however, turns out to be quite the problem:
 
+![An image of an OLED display showing the current boiler temperature](/silvia-pid/espresso4b.jpg)
 
+Oh well, I guess I need something to do next time. ¯\\\_(ツ)\_/¯

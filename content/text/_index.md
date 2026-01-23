@@ -6,4 +6,4 @@ insert_anchor_links = "left"
 sort_by = "date"
 +++
 
-Words fail.
+Thoughts written; scattered and raw. Brace yourself.
