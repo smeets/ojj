@@ -2,8 +2,6 @@
 title = "Home"
 +++
 
-&nbsp;
-
 Welcome to my little corner on the world wide web :)
 
 Let the *beep* *bop* begin.
@@ -14,8 +12,11 @@ Let the *beep* *bop* begin.
 
 - Attempt to catalogue my [projects](/projects)
 
+- A list of [things I read](/things-i-read)
+
 &nbsp;
 
-[cv.html](/cv.html) in swedish
 
 senior backend developer @ [lingio](https://lingio.com)
+
+my [cv](/cv.html) in english
