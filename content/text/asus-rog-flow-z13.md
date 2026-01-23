@@ -6,7 +6,7 @@ draft = false
 [extra]
 weight = 10
 [taxonomies]
-tags=["work", "laptop"]
+tags=["work", "linux"]
 +++
 
 A while back, my until-then kind-of-trusty Dell XPS 13, stopped charging via

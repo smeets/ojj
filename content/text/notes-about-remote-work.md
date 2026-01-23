@@ -6,7 +6,7 @@ updated = 2021-04-16
 [extra]
 weight = 3
 [taxonomies]
-tags=["work", "docker", "remote"]
+tags=["work", "remote"]
 +++
 
 So I'm locked out of my apartment for about 7 weeks, with only a laptop and a
