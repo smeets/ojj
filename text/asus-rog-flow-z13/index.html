@@ -1,0 +1,123 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    asus rog flow z13
+     - ojj</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <a class="navbar-item" href="/">ojj<tt>!</tt></a>
+    </header>
+
+    <main>
+        
+<article>
+
+
+<h1>asus rog flow z13</h1>
+
+<p class="blogpost_intro">
+✍ April 10, 2025
+
+tagged
+	
+		<a class="taxonomy_link" href="https://ojj.nu/tags/work/">#work</a> 
+		<a class="taxonomy_link" href="https://ojj.nu/tags/linux/">#linux</a>
+</p>
+
+
+<p>A while back, my until-then kind-of-trusty Dell XPS 13, stopped charging via
+USB-C. After disassembly I hooked the 4-cell battery up to my lab UPS
+overnight in the bathroom and got it to boot (yay for just-in-time backups).</p>
+<p>I suppose a more hands-on hacker would call it a success and keep going, the
+roughed-up chassis, caused by prying it open with a screwdriver, worn as a
+token of honor from the field of battle. But not me.</p>
+<p>We ordered a new machine, a fun and crazy laptop-tablet thing, called Asus ROG
+Flow Z13. It comes with Windows 11 and some crap from Asus. Oh well, let’s
+put Linux on it and see how it goes.</p>
+<h2 id="arch-linux-pt-1"><a class="zola-anchor" href="#arch-linux-pt-1" aria-label="Anchor link for: arch-linux-pt-1">#</a>arch linux pt. 1</h2>
+<p>My previous laptop ran Arch, so I “etched” a new USB with 2025.03.01. The first thing
+the installer suggests is connecting to the internet, and well <em>fuck</em>_:</p>
+<p>No matter what I tried, <code>iw</code> did not manage to connect to my Wi-Fi. I no
+longer have dmesg logs, but all connection attempts failed within 200ms,
+including retries…</p>
+<p>So I said fuck this, searched around and found Bazzite. I’m no longer playing
+videogames as much but a gaming-focused distro with patches for the Z13?
+That’ll do.</p>
+<h2 id="bazzite-for-software-dev"><a class="zola-anchor" href="#bazzite-for-software-dev" aria-label="Anchor link for: bazzite-for-software-dev">#</a>Bazzite for software dev.</h2>
+<p><a rel="noopener noreferrer" target="_blank" href="https://bazzite.org">Bazzite</a> is built on Fedora and I have no opinions on
+Fedora. After going through the unfamiliar motions of bootstrapping
+an <em>atomic</em> system (i.e. image-based so system upgrade is just an image swap,
+but no clue if that’s a useful definition of atomicity but w/e), I kind of
+reached a decent status quo:</p>
+<ul>
+<li>Wi-Fi works, woho!</li>
+<li>Install all dev things in a <a rel="noopener noreferrer" target="_blank" href="https://distrobox.it/">distrobox</a> (including sublime text)</li>
+<li>Bind <code>Mod+Enter</code> to run <code>distrobox enter dev</code></li>
+<li>Install <a rel="noopener noreferrer" target="_blank" href="https://github.com/YaLTeR/niri">Niri WM</a></li>
+</ul>
+<p>But the way there was quite painful, as it usually is when doing
+trial-by-error w/o reading the fucking manual:</p>
+<ul>
+<li>Cool glitchy rendering artifacts (courtesy of amdgpu driver?) – went away with Niri!</li>
+<li>Fighting a distro that said “no! that’s against the law!” instead of “you brake it, you fix it”</li>
+<li>Read <code>fish</code> config loading order ~20 times …</li>
+<li>Could not install Sublime Text for shit, until I tried it <em>inside</em> a distrobox! Cool moment when it worked.</li>
+<li>Some flatpaks work, some not… and I have no idea why.</li>
+</ul>
+<p>Oh well, finally done.</p>
+<p>This worked quite okay for couple of weeks and system upgrades until I started
+to get strange errors, probably due to my bad practice of not putting
+everything dev-related inside the distrobox container.</p>
+<p>Then April came and I said, let’s try again with arch 2025.04.01.</p>
+<h2 id="arch-linux-pt-2"><a class="zola-anchor" href="#arch-linux-pt-2" aria-label="Anchor link for: arch-linux-pt-2">#</a>arch linux pt. 2</h2>
+<p>Yeah, no. Wi-Fi was still broken.</p>
+<p>So over the weekend I did what any self-respecting nerd without time
+conscience does, and plugged in an ethernet cable and installed arch anyway.</p>
+<p>After trying what feels like a bazzillion different things (but probably was
+closer to a monkey performing the same 3 tricks in different order) I
+installed NetworkManager.</p>
+<p>And the heavens blessed me with Wi-Fi.</p>
+<p>Spirits high I started doing my actual bootstrap routine, and after
+installing <a rel="noopener noreferrer" target="_blank" href="https://hyprland.org/">hyprland</a> et. al. I noticed my next
+problem: I could not scroll using the trackpad. For the love of all that is
+holy, what is going on with this machine? Is the trackpad registering itself
+as a mouse? No. A tablet? No. A keyboard with a nipple? I mean, maybe?</p>
+<p>I’ll gloss over my fruitless search of the www for answers. Defeated and
+depressed, I was ready to go to bed to the joyful sound of birds laughing at
+me. Then, while brushing my teeth, I remberered that the touchpad had worked
+fine on Bazzite, so they must do something right, right!?</p>
+<p>Turns out the swell folks over at Bazzite apply patches and compile the linux
+kernel <a rel="noopener noreferrer" target="_blank" href="https://github.com/bazzite-org/kernel-bazzite">themselves</a> – AND
+EVEN PROVIDE IT ON AUR. Praise be, blessed be their name.</p>
+<p>Anyway, how to try it out? <em>One hour later</em>, after too much reading about
+boot setups and how everything is more complicated than I can even imagine, all
+that was needed was essentially:</p>
+<pre data-lang="sh" class="language-sh "><code class="language-sh" data-lang="sh">sudo kernel-install add-all
+sudo bootctl update
+</code></pre>
+<p>Reboot. Now let’s enjoy the modern life that is scrolling.</p>
+
+
+</article>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <hr>
+            <p>
+                © 2020-2026 Axel Smeets • <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+            </p>
+      </div>
+    </footer>
+</body>
+
+</html>

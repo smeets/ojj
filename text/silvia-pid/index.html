@@ -1,0 +1,125 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    rancilio silva part 1
+     - ojj</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <a class="navbar-item" href="/">ojj<tt>!</tt></a>
+    </header>
+
+    <main>
+        
+<article>
+
+
+<h1>rancilio silva part 1</h1>
+
+<p class="blogpost_intro">
+✍ April 25, 2025
+
+tagged
+	
+		<a class="taxonomy_link" href="https://ojj.nu/tags/coffee/">#coffee</a> 
+		<a class="taxonomy_link" href="https://ojj.nu/tags/diy/">#diy</a>
+</p>
+
+
+<p>So I’ve started my decent into <del>madness</del> espresso and went and bought a
+secondhand Rancilio Silva:</p>
+<p><img src="/silvia-pid/espresso1b.jpg" alt="An image of a Rancilio Silva espresso machine in stainless steel" /></p>
+<p>It’s a simple machine. A 3-way valve. Vibration pump. Single boiler. Brew and
+steam thermostats. I honestly think that the most complex part is the
+EU-mandated energy saving module (but don’t ask me about long-lasting boiler
+design).</p>
+<h2 id="the-possibly-hallucinated-problem-of-temperature-control"><a class="zola-anchor" href="#the-possibly-hallucinated-problem-of-temperature-control" aria-label="Anchor link for: the-possibly-hallucinated-problem-of-temperature-control">#</a>the possibly hallucinated problem of temperature control</h2>
+<p>Most espresso <del>bullshit</del> science can be reduced to one thing: <em>reproducability</em>.
+The end goal is to pull a good shot, and to make the process itself <em>repeatable</em>.
+The general recommendation is to follow a list of steps ranked by impact, and check items off it as you go.</p>
+<ul>
+<li><strong>Beans:</strong> start with good quality, fresh beans</li>
+<li><strong>Recipe:</strong> dosage &gt; ratio &gt; grind size &gt; brew time; dial it in as you go</li>
+<li><strong>Puck prep:</strong> it’s very possible to fuck this up; keep it simple</li>
+<li><strong>Brewing pressure:</strong> pressure at the group head should be 9 bar</li>
+<li><strong>Water temp:</strong> 92°C according to the italian espresso council</li>
+<li><strong>Pre-infusion:</strong> well, manufacturers need something to sell people new machines, right?</li>
+</ul>
+<p>But <em>this</em> story is about brewing temperature, and my Rancilio Silva has a single,
+insulated, ~800W boiler fed by a vibration pump. There is a little bit of
+wiring to control the brewer (on/off) with a thermostat (a kind of
+heat-sensitive controller) which heats the boiler until it reaches 80°C.</p>
+<p>If you haven’t been introduced to the world of regulators, let’s ask
+ourselves, how can the boiler heat water to temperature exceeding 80°C when
+the thermostat switches off at 80°C?</p>
+<ul>
+<li>The heating element is not limited to 80°C. While turning it off will
+prevent the element from getting hotter, any residual heat will still
+affect the water.</li>
+<li>The thermostat measures the temperature of <em>the boiler</em> (from the outside),
+perhaps simplest thought of as a delayed average temperature of the water inside
+the boiler.</li>
+</ul>
+<p>All of this is a lot of text to basically say that it is impossible to reliably pull shots with this machine at 92°C.</p>
+<p>How large effect will this temperature variance have on the taste, you ask.
+Not sure, I answer warily.</p>
+<h2 id="how-to-surf-on-temperate-internets"><a class="zola-anchor" href="#how-to-surf-on-temperate-internets" aria-label="Anchor link for: how-to-surf-on-temperate-internets">#</a>how to surf on temperate internets</h2>
+<p>What do people on <del>reddit</del> internet recommend?</p>
+<blockquote>
+<p><em>“Just temp. surf!”</em></p>
+</blockquote>
+<p>What is this temp. surf you ask?
+<em>Temperature surfing</em> means pushing the brew button, causing hot water to flow into the group head and cold water into the boiler and then waiting for specific amount of time.
+People hope that by doing this procedure (and presumably also by praying to every diety known to man) they’ll luck out and eventually start the show at the correct temperature.</p>
+<p>And people argue that this works, <em>reliably</em>.</p>
+<p>Well, luckily we have <a rel="noopener noreferrer" target="_blank" href="https://github.com/clevercoffee">ze germans</a> who don’t believe in voodoo shit and are pragmatic enough to solve this problem with some engineering and electronics, with some open source software sprinkled on top.
+The gist?
+Replace the brew thermostat with a <a rel="noopener noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller">Proportional Integral Derivative controller</a>.</p>
+<h2 id="it-s-time-to-u-u-upgrade"><a class="zola-anchor" href="#it-s-time-to-u-u-upgrade" aria-label="Anchor link for: it-s-time-to-u-u-upgrade">#</a>it’s time to u-u-upgrade</h2>
+<p>About 6 months post-purchase it was finally time to tackle the problem, imagined or not, of water temperature.
+The first task was to solder, assemble and dryrun the system. Here’s how it looks on my <del>coffee table</del> workbench:</p>
+<p><img src="/silvia-pid/espresso6b.jpg" alt="How not to dry run your assembly" /></p>
+<p>A few mis-wirings, blown sensors and a few incidents of money-not-well-spent later, it’s good to go:</p>
+<ul>
+<li>Firmware upload works via USB</li>
+<li>Firmware upload works via Wi-Fi (horay!)</li>
+<li>Web interface works ~20% of the time (horay?)</li>
+</ul>
+<p>Next up, disassembly of the outer shell: a few screws are all that secure the outer chassis to the inner skeleton.
+Pictured is the insulated boiler with its two thermostats (brown knobs) on the right side, partially obscured by cabling.</p>
+<p><img src="/silvia-pid/espresso2b.jpg" alt="Close-up image of the boiler inside a Rancilio Silva" /></p>
+<p>The two thermostats are for controlling brew and steam temperature separately.
+Rancilio’s own manual has the schematics and I actually read it, somewhat appreciative of the similarity with open source software.
+Replacing the brew thermostat is simple once I find a correctly-sized screw to thumb down the sensor to keep it in place.</p>
+<p><img src="/silvia-pid/espresso3b.jpg" alt="A close up view of the newly installed temperature sensor where a thermostat used to be" /></p>
+<p>Mounting the solid state relay, power supply and PCB is a little finicky.
+Here’s me doing a final dry-run before <del>breaking any remaining warranty</del> committing myself to gluing the parts to the chassis.</p>
+<p><img src="/silvia-pid/espresso7b.jpg" alt="How not to dry run your assembly" /></p>
+<p>Several hours later… it’s done.
+Finding a good place for the OLED screen, however, turns out to be quite the problem:</p>
+<p><img src="/silvia-pid/espresso4b.jpg" alt="An image of an OLED display showing the current boiler temperature" /></p>
+<p>Oh well, I guess I need something to do next time. ¯\_(ツ)_/¯</p>
+
+
+</article>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <hr>
+            <p>
+                © 2020-2026 Axel Smeets • <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+            </p>
+      </div>
+    </footer>
+</body>
+
+</html>
