@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title></title>
+    <link rel="self" type="application/atom+xml" href="https://ojj.nu/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://ojj.nu"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-04-25T00:00:00+00:00</updated>
+    <id>https://ojj.nu/atom.xml</id>
+    <entry xml:lang="en">
+        <title>rancilio silva part 1</title>
+        <published>2025-04-25T00:00:00+00:00</published>
+        <updated>2025-04-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/text/silvia-pid/"/>
+        <id>https://ojj.nu/text/silvia-pid/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/text/silvia-pid/">&lt;p&gt;So I’ve started my decent into &lt;del&gt;madness&lt;&#x2F;del&gt; espresso and went and bought a
+secondhand Rancilio Silva:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;silvia-pid&#x2F;espresso1b.jpg&quot; alt=&quot;An image of a Rancilio Silva espresso machine in stainless steel&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;It’s a simple machine. A 3-way valve. Vibration pump. Single boiler. Brew and
+steam thermostats. I honestly think that the most complex part is the
+EU-mandated energy saving module (but don’t ask me about long-lasting boiler
+design).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-possibly-hallucinated-problem-of-temperature-control&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#the-possibly-hallucinated-problem-of-temperature-control&quot; aria-label=&quot;Anchor link for: the-possibly-hallucinated-problem-of-temperature-control&quot;&gt;#&lt;&#x2F;a&gt;the possibly hallucinated problem of temperature control&lt;&#x2F;h2&gt;
+&lt;p&gt;Most espresso &lt;del&gt;bullshit&lt;&#x2F;del&gt; science can be reduced to one thing: &lt;em&gt;reproducability&lt;&#x2F;em&gt;.
+The end goal is to pull a good shot, and to make the process itself &lt;em&gt;repeatable&lt;&#x2F;em&gt;.
+The general recommendation is to follow a list of steps ranked by impact, and check items off it as you go.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Beans:&lt;&#x2F;strong&gt; start with good quality, fresh beans&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Recipe:&lt;&#x2F;strong&gt; dosage &amp;gt; ratio &amp;gt; grind size &amp;gt; brew time; dial it in as you go&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Puck prep:&lt;&#x2F;strong&gt; it’s very possible to fuck this up; keep it simple&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Brewing pressure:&lt;&#x2F;strong&gt; pressure at the group head should be 9 bar&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Water temp:&lt;&#x2F;strong&gt; 92°C according to the italian espresso council&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Pre-infusion:&lt;&#x2F;strong&gt; well, manufacturers need something to sell people new machines, right?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;But &lt;em&gt;this&lt;&#x2F;em&gt; story is about brewing temperature, and my Rancilio Silva has a single,
+insulated, ~800W boiler fed by a vibration pump. There is a little bit of
+wiring to control the brewer (on&#x2F;off) with a thermostat (a kind of
+heat-sensitive controller) which heats the boiler until it reaches 80°C.&lt;&#x2F;p&gt;
+&lt;p&gt;If you haven’t been introduced to the world of regulators, let’s ask
+ourselves, how can the boiler heat water to temperature exceeding 80°C when
+the thermostat switches off at 80°C?&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;The heating element is not limited to 80°C. While turning it off will
+prevent the element from getting hotter, any residual heat will still
+affect the water.&lt;&#x2F;li&gt;
+&lt;li&gt;The thermostat measures the temperature of &lt;em&gt;the boiler&lt;&#x2F;em&gt; (from the outside),
+perhaps simplest thought of as a delayed average temperature of the water inside
+the boiler.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;All of this is a lot of text to basically say that it is impossible to reliably pull shots with this machine at 92°C.&lt;&#x2F;p&gt;
+&lt;p&gt;How large effect will this temperature variance have on the taste, you ask.
+Not sure, I answer warily.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-to-surf-on-temperate-internets&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#how-to-surf-on-temperate-internets&quot; aria-label=&quot;Anchor link for: how-to-surf-on-temperate-internets&quot;&gt;#&lt;&#x2F;a&gt;how to surf on temperate internets&lt;&#x2F;h2&gt;
+&lt;p&gt;What do people on &lt;del&gt;reddit&lt;&#x2F;del&gt; internet recommend?&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Just temp. surf!”&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;What is this temp. surf you ask?
+&lt;em&gt;Temperature surfing&lt;&#x2F;em&gt; means pushing the brew button, causing hot water to flow into the group head and cold water into the boiler and then waiting for specific amount of time.
+People hope that by doing this procedure (and presumably also by praying to every diety known to man) they’ll luck out and eventually start the show at the correct temperature.&lt;&#x2F;p&gt;
+&lt;p&gt;And people argue that this works, &lt;em&gt;reliably&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Well, luckily we have &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;clevercoffee&quot;&gt;ze germans&lt;&#x2F;a&gt; who don’t believe in voodoo shit and are pragmatic enough to solve this problem with some engineering and electronics, with some open source software sprinkled on top.
+The gist?
+Replace the brew thermostat with a &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Proportional%E2%80%93integral%E2%80%93derivative_controller&quot;&gt;Proportional Integral Derivative controller&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;it-s-time-to-u-u-upgrade&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#it-s-time-to-u-u-upgrade&quot; aria-label=&quot;Anchor link for: it-s-time-to-u-u-upgrade&quot;&gt;#&lt;&#x2F;a&gt;it’s time to u-u-upgrade&lt;&#x2F;h2&gt;
+&lt;p&gt;About 6 months post-purchase it was finally time to tackle the problem, imagined or not, of water temperature.
+The first task was to solder, assemble and dryrun the system. Here’s how it looks on my &lt;del&gt;coffee table&lt;&#x2F;del&gt; workbench:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;silvia-pid&#x2F;espresso6b.jpg&quot; alt=&quot;How not to dry run your assembly&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A few mis-wirings, blown sensors and a few incidents of money-not-well-spent later, it’s good to go:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Firmware upload works via USB&lt;&#x2F;li&gt;
+&lt;li&gt;Firmware upload works via Wi-Fi (horay!)&lt;&#x2F;li&gt;
+&lt;li&gt;Web interface works ~20% of the time (horay?)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Next up, disassembly of the outer shell: a few screws are all that secure the outer chassis to the inner skeleton.
+Pictured is the insulated boiler with its two thermostats (brown knobs) on the right side, partially obscured by cabling.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;silvia-pid&#x2F;espresso2b.jpg&quot; alt=&quot;Close-up image of the boiler inside a Rancilio Silva&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The two thermostats are for controlling brew and steam temperature separately.
+Rancilio’s own manual has the schematics and I actually read it, somewhat appreciative of the similarity with open source software.
+Replacing the brew thermostat is simple once I find a correctly-sized screw to thumb down the sensor to keep it in place.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;silvia-pid&#x2F;espresso3b.jpg&quot; alt=&quot;A close up view of the newly installed temperature sensor where a thermostat used to be&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Mounting the solid state relay, power supply and PCB is a little finicky.
+Here’s me doing a final dry-run before &lt;del&gt;breaking any remaining warranty&lt;&#x2F;del&gt; committing myself to gluing the parts to the chassis.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;silvia-pid&#x2F;espresso7b.jpg&quot; alt=&quot;How not to dry run your assembly&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Several hours later… it’s done.
+Finding a good place for the OLED screen, however, turns out to be quite the problem:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;silvia-pid&#x2F;espresso4b.jpg&quot; alt=&quot;An image of an OLED display showing the current boiler temperature&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Oh well, I guess I need something to do next time. ¯\_(ツ)_&#x2F;¯&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>asus rog flow z13</title>
+        <published>2025-04-10T00:00:00+00:00</published>
+        <updated>2025-04-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/text/asus-rog-flow-z13/"/>
+        <id>https://ojj.nu/text/asus-rog-flow-z13/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/text/asus-rog-flow-z13/">&lt;p&gt;A while back, my until-then kind-of-trusty Dell XPS 13, stopped charging via
+USB-C. After disassembly I hooked the 4-cell battery up to my lab UPS
+overnight in the bathroom and got it to boot (yay for just-in-time backups).&lt;&#x2F;p&gt;
+&lt;p&gt;I suppose a more hands-on hacker would call it a success and keep going, the
+roughed-up chassis, caused by prying it open with a screwdriver, worn as a
+token of honor from the field of battle. But not me.&lt;&#x2F;p&gt;
+&lt;p&gt;We ordered a new machine, a fun and crazy laptop-tablet thing, called Asus ROG
+Flow Z13. It comes with Windows 11 and some crap from Asus. Oh well, let’s
+put Linux on it and see how it goes.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;arch-linux-pt-1&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#arch-linux-pt-1&quot; aria-label=&quot;Anchor link for: arch-linux-pt-1&quot;&gt;#&lt;&#x2F;a&gt;arch linux pt. 1&lt;&#x2F;h2&gt;
+&lt;p&gt;My previous laptop ran Arch, so I “etched” a new USB with 2025.03.01. The first thing
+the installer suggests is connecting to the internet, and well &lt;em&gt;fuck&lt;&#x2F;em&gt;_:&lt;&#x2F;p&gt;
+&lt;p&gt;No matter what I tried, &lt;code&gt;iw&lt;&#x2F;code&gt; did not manage to connect to my Wi-Fi. I no
+longer have dmesg logs, but all connection attempts failed within 200ms,
+including retries…&lt;&#x2F;p&gt;
+&lt;p&gt;So I said fuck this, searched around and found Bazzite. I’m no longer playing
+videogames as much but a gaming-focused distro with patches for the Z13?
+That’ll do.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;bazzite-for-software-dev&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bazzite-for-software-dev&quot; aria-label=&quot;Anchor link for: bazzite-for-software-dev&quot;&gt;#&lt;&#x2F;a&gt;Bazzite for software dev.&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;bazzite.org&quot;&gt;Bazzite&lt;&#x2F;a&gt; is built on Fedora and I have no opinions on
+Fedora. After going through the unfamiliar motions of bootstrapping
+an &lt;em&gt;atomic&lt;&#x2F;em&gt; system (i.e. image-based so system upgrade is just an image swap,
+but no clue if that’s a useful definition of atomicity but w&#x2F;e), I kind of
+reached a decent status quo:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Wi-Fi works, woho!&lt;&#x2F;li&gt;
+&lt;li&gt;Install all dev things in a &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;distrobox.it&#x2F;&quot;&gt;distrobox&lt;&#x2F;a&gt; (including sublime text)&lt;&#x2F;li&gt;
+&lt;li&gt;Bind &lt;code&gt;Mod+Enter&lt;&#x2F;code&gt; to run &lt;code&gt;distrobox enter dev&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Install &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;YaLTeR&#x2F;niri&quot;&gt;Niri WM&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;But the way there was quite painful, as it usually is when doing
+trial-by-error w&#x2F;o reading the fucking manual:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cool glitchy rendering artifacts (courtesy of amdgpu driver?) – went away with Niri!&lt;&#x2F;li&gt;
+&lt;li&gt;Fighting a distro that said “no! that’s against the law!” instead of “you brake it, you fix it”&lt;&#x2F;li&gt;
+&lt;li&gt;Read &lt;code&gt;fish&lt;&#x2F;code&gt; config loading order ~20 times …&lt;&#x2F;li&gt;
+&lt;li&gt;Could not install Sublime Text for shit, until I tried it &lt;em&gt;inside&lt;&#x2F;em&gt; a distrobox! Cool moment when it worked.&lt;&#x2F;li&gt;
+&lt;li&gt;Some flatpaks work, some not… and I have no idea why.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Oh well, finally done.&lt;&#x2F;p&gt;
+&lt;p&gt;This worked quite okay for couple of weeks and system upgrades until I started
+to get strange errors, probably due to my bad practice of not putting
+everything dev-related inside the distrobox container.&lt;&#x2F;p&gt;
+&lt;p&gt;Then April came and I said, let’s try again with arch 2025.04.01.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;arch-linux-pt-2&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#arch-linux-pt-2&quot; aria-label=&quot;Anchor link for: arch-linux-pt-2&quot;&gt;#&lt;&#x2F;a&gt;arch linux pt. 2&lt;&#x2F;h2&gt;
+&lt;p&gt;Yeah, no. Wi-Fi was still broken.&lt;&#x2F;p&gt;
+&lt;p&gt;So over the weekend I did what any self-respecting nerd without time
+conscience does, and plugged in an ethernet cable and installed arch anyway.&lt;&#x2F;p&gt;
+&lt;p&gt;After trying what feels like a bazzillion different things (but probably was
+closer to a monkey performing the same 3 tricks in different order) I
+installed NetworkManager.&lt;&#x2F;p&gt;
+&lt;p&gt;And the heavens blessed me with Wi-Fi.&lt;&#x2F;p&gt;
+&lt;p&gt;Spirits high I started doing my actual bootstrap routine, and after
+installing &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;hyprland.org&#x2F;&quot;&gt;hyprland&lt;&#x2F;a&gt; et. al. I noticed my next
+problem: I could not scroll using the trackpad. For the love of all that is
+holy, what is going on with this machine? Is the trackpad registering itself
+as a mouse? No. A tablet? No. A keyboard with a nipple? I mean, maybe?&lt;&#x2F;p&gt;
+&lt;p&gt;I’ll gloss over my fruitless search of the www for answers. Defeated and
+depressed, I was ready to go to bed to the joyful sound of birds laughing at
+me. Then, while brushing my teeth, I remberered that the touchpad had worked
+fine on Bazzite, so they must do something right, right!?&lt;&#x2F;p&gt;
+&lt;p&gt;Turns out the swell folks over at Bazzite apply patches and compile the linux
+kernel &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bazzite-org&#x2F;kernel-bazzite&quot;&gt;themselves&lt;&#x2F;a&gt; – AND
+EVEN PROVIDE IT ON AUR. Praise be, blessed be their name.&lt;&#x2F;p&gt;
+&lt;p&gt;Anyway, how to try it out? &lt;em&gt;One hour later&lt;&#x2F;em&gt;, after too much reading about
+boot setups and how everything is more complicated than I can even imagine, all
+that was needed was essentially:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo kernel-install add-all
+sudo bootctl update
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Reboot. Now let’s enjoy the modern life that is scrolling.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>running docker on windows over ssh</title>
+        <published>2021-03-26T00:00:00+00:00</published>
+        <updated>2021-04-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/text/notes-about-remote-work/"/>
+        <id>https://ojj.nu/text/notes-about-remote-work/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/text/notes-about-remote-work/">&lt;p&gt;So I’m locked out of my apartment for about 7 weeks, with only a laptop and a
+keyboard.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are some notes about my setup.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;docker-4-mac&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#docker-4-mac&quot; aria-label=&quot;Anchor link for: docker-4-mac&quot;&gt;#&lt;&#x2F;a&gt;docker 4 mac&lt;&#x2F;h2&gt;
+&lt;p&gt;There is a native ARM64 build, but it comes with an &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.docker.com&#x2F;docker-for-mac&#x2F;apple-m1&#x2F;#known-issues&quot;&gt;extensive list of known
+issues&lt;&#x2F;a&gt;. In
+particular, emulation of x86-based containers is sketchy and the disk
+performance is &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;for-mac&#x2F;issues&#x2F;1592&quot;&gt;not very good&lt;&#x2F;a&gt;
+when mounting host folders in the container.&lt;&#x2F;p&gt;
+&lt;p&gt;Normally, I have access to a Windows (home) or Linux (office) machine and
+both offer a better docker experience compared to MacOS. Since my apartment
+will continue to have internet access, why run a gimped container setup on my
+MacBook Air when I can &lt;del&gt;do something pointless&lt;&#x2F;del&gt; learn something new??&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;my-setup&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#my-setup&quot; aria-label=&quot;Anchor link for: my-setup&quot;&gt;#&lt;&#x2F;a&gt;my setup&lt;&#x2F;h2&gt;
+&lt;p&gt;I have a Windows machine and a Raspberry Pi at home. My plan? Use Wake-On-LAN
+to wake my Windows machine, run docker on it for work and put it back to
+sleep when done.&lt;&#x2F;p&gt;
+&lt;p&gt;I found a nice little program called &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;sabhiram&#x2F;go-wol&quot;&gt;wol&lt;&#x2F;a&gt;
+which let me save the MAC address of my Windows machine under an alias, which
+made the wakeup script self-explanatory.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#!&amp;#x2F;usr&amp;#x2F;bin&amp;#x2F;env bash
+ssh piathome &amp;#x27;&amp;#x2F;home&amp;#x2F;pi&amp;#x2F;go&amp;#x2F;bin&amp;#x2F;wol wake winathome&amp;#x27;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Next up was enabling Wake-On-LAN on my Windows machine, which turned out to be
+quite simple. After a couple of wake-and-sleep cycles later I was confident
+that this setup would actually work.&lt;&#x2F;p&gt;
+&lt;p&gt;At this point I could wake the machine from sleep, and since I already had
+enabled the built-in OpenSSH server, I searched online and found an eldritch
+command to put it back to sleep. Behold:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#!&amp;#x2F;usr&amp;#x2F;bin&amp;#x2F;env bash
+ssh winathome -t &amp;#x27;cmd &amp;#x2F;c \&amp;quot;rundll32.exe powrprof.dll,SetSuspendState 0,1,0\&amp;quot;&amp;#x27;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now it was time to automate these steps (as steps in a
+&lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;tmuxinator&#x2F;tmuxinator&quot;&gt;tmuxinator&lt;&#x2F;a&gt;
+project) and move on to docker &lt;del&gt;shit&lt;&#x2F;del&gt;!&lt;&#x2F;p&gt;
+&lt;p&gt;Starting, stopping and all container interactions worked without any problem.
+This is my script for port-forwarding ports and starting the backend services
+in a work project:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#!&amp;#x2F;usr&amp;#x2F;bin&amp;#x2F;env bash
+ssh winathome -L 3200:localhost:3200 -t &amp;#x27;cmd &amp;#x2F;c \&amp;quot;cd &amp;#x2F;dE:&amp;#x2F;work&amp;#x2F;xyz &amp;amp;&amp;amp; docker-compose up\&amp;quot;&amp;#x27;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;and maybe an interactive session as well.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#!&amp;#x2F;usr&amp;#x2F;bin&amp;#x2F;env bash
+ssh winathome -t &amp;#x27;cmd &amp;#x2F;k \&amp;quot;cd &amp;#x2F;dE:&amp;#x2F;work&amp;#x2F;xyz\&amp;quot;&amp;#x27;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This actually works surprisingly well, now I mostly do:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;bring machine up: &lt;code&gt;tmuxinator start workday&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;work on project(s): &lt;code&gt;tmuxinator start&#x2F;stop xyz&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;bring machine down: &lt;code&gt;tmuxinator stop workday&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;troubles&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#troubles&quot; aria-label=&quot;Anchor link for: troubles&quot;&gt;#&lt;&#x2F;a&gt;troubles&lt;&#x2F;h2&gt;
+&lt;p&gt;Of course, it was not exactly a smooth start:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git&lt;&#x2F;code&gt; failed due to something related to a credential manager - “fixed” by switching remote from https to ssh&lt;&#x2F;li&gt;
+&lt;li&gt;azure container registry at $DAYJOB need a ~daily login &lt;code&gt;az acr login&lt;&#x2F;code&gt; which also failed due to similar error - resolved after &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;docs.microsoft.com&#x2F;en-us&#x2F;azure&#x2F;container-registry&#x2F;container-registry-authentication&quot;&gt;reading the fucking manual&lt;&#x2F;a&gt;
+and &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.projectatomic.io&#x2F;blog&#x2F;2016&#x2F;03&#x2F;docker-credentials-store&#x2F;&quot;&gt;learning about docker credentials&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;cmd&quot; class=&quot;language-cmd &quot;&gt;&lt;code class=&quot;language-cmd&quot; data-lang=&quot;cmd&quot;&gt;@rem remove &amp;quot;credsStore&amp;quot; key from config which does not work with ssh session and seems to be default on desktop
+jq &amp;quot;del(.credsStore)&amp;quot; %userprofile%\.docker\config.json | sponge %userprofile%\.docker\config.json
+
+az acr login --name xyz --expose-token | jq -r .accessToken &amp;gt; .aztoken
+cat .aztoken | docker login xyz.azurecr.io -u 00000000-0000-0000-0000-000000000000 --password-stdin
+del .aztoken
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>ica-tuna</title>
+        <published>2020-10-10T00:00:00+00:00</published>
+        <updated>2020-10-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/tuna/"/>
+        <id>https://ojj.nu/projects/tuna/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/projects/tuna/">&lt;p&gt;Shitty price scraper and tracker for the neighbourhood supermarket: ICA Tuna.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>bonk</title>
+        <published>2020-10-01T00:00:00+00:00</published>
+        <updated>2020-10-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/bonk/"/>
+        <id>https://ojj.nu/projects/bonk/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/projects/bonk/">&lt;p&gt;A decluttered, simple UFC mirror with hourly updates.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>webfox</title>
+        <published>2020-06-01T00:00:00+00:00</published>
+        <updated>2020-06-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/webfox/"/>
+        <id>https://ojj.nu/projects/webfox/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/projects/webfox/">&lt;p&gt;Learning-by-doing &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;httpie.org&#x2F;&quot;&gt;httpie&lt;&#x2F;a&gt; clone in &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.rust-lang.org&#x2F;&quot;&gt;Rust&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>jana</title>
+        <published>2020-04-01T00:00:00+00:00</published>
+        <updated>2020-04-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/jana/"/>
+        <id>https://ojj.nu/projects/jana/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/projects/jana/">&lt;p&gt;“Just Another Network Analyser”.&lt;&#x2F;p&gt;
+&lt;p&gt;Send UDP from multiple clients to one server using different payload and
+inter-packet latency distributions. Developed solely for use during my thesis
+work in Wi-Fi modeling.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>bandcamp search</title>
+        <published>2020-01-01T00:00:00+00:00</published>
+        <updated>2020-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/bandcamp-search/"/>
+        <id>https://ojj.nu/projects/bandcamp-search/</id>
+        
+        <summary type="html">&lt;ul&gt;
+&lt;li&gt;“Reverse-engineered” how the Bandcamp app does “real-time” keyword search.&lt;&#x2F;li&gt;
+&lt;li&gt;Turns out it’s a simple HTTP API.&lt;&#x2F;li&gt;
+&lt;li&gt;&#x2F;surprise face :o&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>iceberg</title>
+        <published>2020-01-01T00:00:00+00:00</published>
+        <updated>2020-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/iceberg/"/>
+        <id>https://ojj.nu/projects/iceberg/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/projects/iceberg/">&lt;ul&gt;
+&lt;li&gt;Proof-of-concept game using websockets to signal and connect webrtc players to a game server&lt;&#x2F;li&gt;
+&lt;li&gt;Sample phone orientation and use as input (acceleration) to game server&lt;&#x2F;li&gt;
+&lt;li&gt;Don’t fall off the iceberg :] (&lt;strong&gt;No actual gameplay&lt;&#x2F;strong&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>deploy</title>
+        <published>2018-03-19T00:00:00+00:00</published>
+        <updated>2018-03-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://ojj.nu/projects/deploy/"/>
+        <id>https://ojj.nu/projects/deploy/</id>
+        
+        <content type="html" xml:base="https://ojj.nu/projects/deploy/">&lt;p&gt;All-to-simple deployment tool I wrote to learn some &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;golang.org&#x2F;&quot;&gt;Go&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Has since been replaced by &lt;a rel=&quot;noopener noreferrer&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;pressly&#x2F;sup&#x2F;&quot;&gt;sup&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Worked well, after a fashion.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
