@@ -5,13 +5,18 @@ template = "index.html"
 
 A somewhat incomplete reading list.
 
+
 ## Blogs
 
 - [Reliable Signals of Honest Intent](https://zanlib.dev/blog/reliable-signals-of-honest-intent/)
+- [Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/)
 
 ## Papers
 
 At least the ones I can recall.
+
+- [Build Systems à la Carte](https://simon.peytonjones.org/assets/pdfs/build-systems-jfp.pdf)
+- [Scalability! But at what COST?](https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf)
 
 ## Books
 

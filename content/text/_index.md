@@ -7,3 +7,7 @@ sort_by = "date"
 +++
 
 Thoughts written; scattered and raw. Brace yourself.
+
+{% quote(author="Paul Barham") %}
+“You can have a second computer once you’ve shown you know how to use the first one.”
+{% end %}
