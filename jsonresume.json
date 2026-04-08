@@ -1,0 +1,103 @@
+{
+	"basics": "Axel Smeets",
+	"label": "Senior Software Engineer",
+	"image": "",
+	"email": "axel@ojj.nu",
+	"url": "https://ojj.nu",
+	"summary": "",
+	"location": {
+		"city": "Lund",
+		"countryCode": "SE"
+	},
+	"profiles": [
+		{"network": "github", "username": "smeets", "url": "https://github.com/smeets"}
+	],
+	"work": [
+		{
+			"name": "Lingio",
+			"position": "Senior Backend Engineer",
+			"url": "https://lingio.com",
+			"startDate": "2021",
+			"summary": "",
+			"highlights": [
+				""
+			]
+		},
+		{
+			"name": "ON-IQ Solutions",
+			"position": "Team Lead",
+			"url": "https://oniqvision.com",
+			"startDate": "2016",
+			"endDate": "2021",
+			"summary": "",
+			"highlights": [
+				""
+			]
+		}
+	],
+	"volunteer": [],
+	"education": [
+		{
+			"institution": "Lund University",
+			"url": "https://www.lth.se/english",
+			"area": "Computer Science",
+			"studyType": "Civil Engineer (MSc.)",
+			"startDate": "2012",
+			"endDate": "2021"
+		}
+	],
+	"awards": [],
+	"certificates": [],
+	"publications": [],
+	"skills": [
+		{
+			"name": "Systems programming",
+			"keywords": [
+				"distributed systems",
+				"microservices",
+				"monoliths",
+				"containers",
+				"tcp",
+				"http",
+				"zmq",
+				"mqtt"
+			]
+		},
+		{
+			"name": "Databases et al.",
+			"keywords": [
+				"redis",
+				"postgres",
+				"sqlite3",
+				"Google Spanner",
+				"Google Pub/Sub",
+				"Google Cloud Storage",
+				"S3",
+				"a file on disk"
+			],
+		},
+		{
+			"name": "Web infrastructure",
+			"keywords": [
+				"GCP",
+				"Azure",
+				"Kubernetes (GKE, anthos,)",
+				"VM sysadmin",
+				"Docker & docker-compose",
+				"CI / CD"
+			]
+		},
+		{
+			"name": "Browser frontend",
+			"keywords": [
+				"HTML",
+				"CSS",
+				"JavaScript"
+			]
+		}
+	],
+	"languages": [],
+	"interests": [],
+	"references": [],
+	"projects": []
+}
