@@ -27,6 +27,12 @@
     .leaflet-popup-content { font: 13px/1.45 system-ui, sans-serif; }
     .leaflet-popup-content .ip { font-weight: 600; }
     .leaflet-popup-content .seen { color: #c0392b; font-weight: 600; }
+    .circle-label {
+      background: transparent; border: none; box-shadow: none;
+      color: #e6e6e6; font: 11px/1 system-ui, sans-serif; font-weight: 600;
+      text-shadow: 0 0 3px #000, 0 0 3px #000; padding: 0;
+    }
+    .circle-label::before { display: none; }
   </style>
 </head>
 <body>
@@ -69,6 +75,9 @@
         `<div>${esc(p.org)}</div>` +
         `<div>seen <span class="seen">${p.seen}</span>` +
         `${p.last_seen ? " &middot; " + esc(p.last_seen) : ""}</div>`
+      ).bindTooltip(
+        `${esc(p.city) || esc(p.country) || esc(p.ip)}: ${p.seen}`,
+        { direction: "top", className: "circle-label" }
       );
     }
 
