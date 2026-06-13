@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    running docker on windows over ssh
+     - ojj</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+
+<body>
+    <header>
+        <a class="navbar-item" href="/">ojj<tt>!</tt></a>
+    </header>
+
+    <main>
+        
+<article>
+
+
+<h1>running docker on windows over ssh</h1>
+
+<p class="blogpost_intro">
+✍ March 26, 2021
+(updated April 16, 2021)
+tagged
+	
+		<a class="taxonomy_link" href="https://ojj.nu/tags/work/">#work</a> 
+		<a class="taxonomy_link" href="https://ojj.nu/tags/remote/">#remote</a>
+</p>
+
+
+<p>So I’m locked out of my apartment for about 7 weeks, with only a laptop and a
+keyboard.</p>
+<p>Here are some notes about my setup.</p>
+<h2 id="docker-4-mac"><a class="zola-anchor" href="#docker-4-mac" aria-label="Anchor link for: docker-4-mac">#</a>docker 4 mac</h2>
+<p>There is a native ARM64 build, but it comes with an <a rel="noopener noreferrer" target="_blank" href="https://docs.docker.com/docker-for-mac/apple-m1/#known-issues">extensive list of known
+issues</a>. In
+particular, emulation of x86-based containers is sketchy and the disk
+performance is <a rel="noopener noreferrer" target="_blank" href="https://github.com/docker/for-mac/issues/1592">not very good</a>
+when mounting host folders in the container.</p>
+<p>Normally, I have access to a Windows (home) or Linux (office) machine and
+both offer a better docker experience compared to MacOS. Since my apartment
+will continue to have internet access, why run a gimped container setup on my
+MacBook Air when I can <del>do something pointless</del> learn something new??</p>
+<h2 id="my-setup"><a class="zola-anchor" href="#my-setup" aria-label="Anchor link for: my-setup">#</a>my setup</h2>
+<p>I have a Windows machine and a Raspberry Pi at home. My plan? Use Wake-On-LAN
+to wake my Windows machine, run docker on it for work and put it back to
+sleep when done.</p>
+<p>I found a nice little program called <a rel="noopener noreferrer" target="_blank" href="https://github.com/sabhiram/go-wol">wol</a>
+which let me save the MAC address of my Windows machine under an alias, which
+made the wakeup script self-explanatory.</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">#!&#x2F;usr&#x2F;bin&#x2F;env bash
+ssh piathome &#x27;&#x2F;home&#x2F;pi&#x2F;go&#x2F;bin&#x2F;wol wake winathome&#x27;
+</code></pre>
+<p>Next up was enabling Wake-On-LAN on my Windows machine, which turned out to be
+quite simple. After a couple of wake-and-sleep cycles later I was confident
+that this setup would actually work.</p>
+<p>At this point I could wake the machine from sleep, and since I already had
+enabled the built-in OpenSSH server, I searched online and found an eldritch
+command to put it back to sleep. Behold:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">#!&#x2F;usr&#x2F;bin&#x2F;env bash
+ssh winathome -t &#x27;cmd &#x2F;c \&quot;rundll32.exe powrprof.dll,SetSuspendState 0,1,0\&quot;&#x27;
+</code></pre>
+<p>Now it was time to automate these steps (as steps in a
+<a rel="noopener noreferrer" target="_blank" href="https://github.com/tmuxinator/tmuxinator">tmuxinator</a>
+project) and move on to docker <del>shit</del>!</p>
+<p>Starting, stopping and all container interactions worked without any problem.
+This is my script for port-forwarding ports and starting the backend services
+in a work project:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">#!&#x2F;usr&#x2F;bin&#x2F;env bash
+ssh winathome -L 3200:localhost:3200 -t &#x27;cmd &#x2F;c \&quot;cd &#x2F;dE:&#x2F;work&#x2F;xyz &amp;&amp; docker-compose up\&quot;&#x27;
+</code></pre>
+<p>and maybe an interactive session as well.</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">#!&#x2F;usr&#x2F;bin&#x2F;env bash
+ssh winathome -t &#x27;cmd &#x2F;k \&quot;cd &#x2F;dE:&#x2F;work&#x2F;xyz\&quot;&#x27;
+</code></pre>
+<p>This actually works surprisingly well, now I mostly do:</p>
+<ul>
+<li>bring machine up: <code>tmuxinator start workday</code></li>
+<li>work on project(s): <code>tmuxinator start/stop xyz</code></li>
+<li>bring machine down: <code>tmuxinator stop workday</code></li>
+</ul>
+<h2 id="troubles"><a class="zola-anchor" href="#troubles" aria-label="Anchor link for: troubles">#</a>troubles</h2>
+<p>Of course, it was not exactly a smooth start:</p>
+<ul>
+<li><code>git</code> failed due to something related to a credential manager - “fixed” by switching remote from https to ssh</li>
+<li>azure container registry at $DAYJOB need a ~daily login <code>az acr login</code> which also failed due to similar error - resolved after <a rel="noopener noreferrer" target="_blank" href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication">reading the fucking manual</a>
+and <a rel="noopener noreferrer" target="_blank" href="https://www.projectatomic.io/blog/2016/03/docker-credentials-store/">learning about docker credentials</a></li>
+</ul>
+<pre data-lang="cmd" class="language-cmd "><code class="language-cmd" data-lang="cmd">@rem remove &quot;credsStore&quot; key from config which does not work with ssh session and seems to be default on desktop
+jq &quot;del(.credsStore)&quot; %userprofile%\.docker\config.json | sponge %userprofile%\.docker\config.json
+
+az acr login --name xyz --expose-token | jq -r .accessToken &gt; .aztoken
+cat .aztoken | docker login xyz.azurecr.io -u 00000000-0000-0000-0000-000000000000 --password-stdin
+del .aztoken
+</code></pre>
+
+
+</article>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <hr>
+            <p>
+                © 2020-2026 Axel Smeets • <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+            </p>
+      </div>
+    </footer>
+</body>
+
+</html>
